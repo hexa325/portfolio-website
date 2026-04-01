@@ -5,6 +5,18 @@
 @theme inline {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer base {
@@ -18,23 +30,7 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  input,
-  textarea,
-  button,
-  a,
-  span,
-  p,
-  h1,
-  h2,
-  h3,
-  li {
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  }
 
-  input::placeholder,
-  textarea::placeholder {
-    transition: color 0.3s ease;
-  }
 }
 
 @layer components {

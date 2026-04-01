@@ -21,14 +21,14 @@ export default function Skills() {
         {skillCategories.map((category) => (
           <div
             key={category.title}
-            className="bg-white/5 rounded-2xl p-6 border border-white/10"
+            className="bg-white/5 dark:bg-white/5 bg-black/5 rounded-2xl p-6 border border-white/10 dark:border-white/10 border-black/10"
           >
             <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1 bg-white/10 rounded-full text-sm"
+                  className="px-3 py-1 bg-white/10 dark:bg-white/10 bg-black/10 rounded-full text-sm"
                 >
                   {skill}
                 </span>

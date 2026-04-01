@@ -6,33 +6,39 @@ export default function Projects() {
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-colors group"
+            className="bg-white/5 dark:bg-white/5 bg-black/5 rounded-2xl p-6 border border-white/10 dark:border-white/10 border-black/10 hover:border-white/30 dark:hover:border-white/30 hover:border-black/30 transition-colors group"
           >
-            <div className="aspect-video bg-white/10 rounded-xl mb-4 flex items-center justify-center">
-              <span className="text-white/30" role="img" aria-label="Project screenshot placeholder">Project Screenshot</span>
+            <div className="aspect-video bg-white/10 dark:bg-white/10 bg-black/10 rounded-xl mb-4 flex items-center justify-center">
+              <span
+                className="text-white/30 dark:text-white/30 text-black/30"
+                role="img"
+                aria-label="Project screenshot placeholder"
+              >
+                Project Screenshot
+              </span>
             </div>
             <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">
               Project Name {i}
             </h3>
-            <p className="text-white/60 mb-4">
+            <p className="text-white/60 dark:text-white/60 text-black/60 mb-4">
               A brief description of what this project does and what
               technologies were used.
             </p>
             <div className="flex gap-2">
-              <span className="px-2 py-1 bg-white/10 rounded text-xs">
+              <span className="px-2 py-1 bg-white/10 dark:bg-white/10 bg-black/10 rounded text-xs">
                 React
               </span>
-              <span className="px-2 py-1 bg-white/10 rounded text-xs">
+              <span className="px-2 py-1 bg-white/10 dark:bg-white/10 bg-black/10 rounded text-xs">
                 TypeScript
               </span>
-              <span className="px-2 py-1 bg-white/10 rounded text-xs">
+              <span className="px-2 py-1 bg-white/10 dark:bg-white/10 bg-black/10 rounded text-xs">
                 Node.js
               </span>
             </div>
           </div>
         ))}
       </div>
-      <p className="text-white/40 mt-8 text-sm italic">
+      <p className="text-white/40 dark:text-white/40 text-black/40 mt-8 text-sm italic">
         * Placeholders — update with your real projects
       </p>
     </section>

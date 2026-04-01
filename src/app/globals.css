@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme {
+@theme inline {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
 }
@@ -9,7 +9,7 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -24,33 +24,33 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   @media (min-width: 640px) {
     .section-container {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .section-container {
       padding-left: 2rem;
       padding-right: 2rem;
     }
   }
-  
+
   .section-padding {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-  
+
   @media (min-width: 768px) {
     .section-padding {
       padding-top: 6rem;
       padding-bottom: 6rem;
     }
   }
-  
+
   .gradient-text {
     background: linear-gradient(to right, #60a5fa, #a855f7);
     -webkit-background-clip: text;

@@ -14,10 +14,7 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("sending");
 
-    // Replace with your form submission logic
-    // Example: Formspree, Netlify Forms, or your own API
     try {
-      // Simulating form submission
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
@@ -39,7 +36,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-white/5 bg-black/5 border border-white/10 dark:border-white/10 border-black/10 focus:outline-none focus:border-blue-400 transition-colors"
+          className="w-full px-4 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-blue-400 transition-colors"
           placeholder="Your name"
         />
       </div>
@@ -55,7 +52,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-white/5 bg-black/5 border border-white/10 dark:border-white/10 border-black/10 focus:outline-none focus:border-blue-400 transition-colors"
+          className="w-full px-4 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-blue-400 transition-colors"
           placeholder="your@email.com"
         />
       </div>
@@ -71,7 +68,7 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           required
           rows={5}
-          className="w-full px-4 py-3 rounded-lg bg-white/5 dark:bg-white/5 bg-black/5 border border-white/10 dark:border-white/10 border-black/10 focus:outline-none focus:border-blue-400 transition-colors resize-none"
+          className="w-full px-4 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-blue-400 transition-colors resize-none"
           placeholder="Your message..."
         />
       </div>
@@ -79,7 +76,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full px-6 py-3 bg-white text-black dark:bg-white dark:text-black bg-black text-white dark:bg-black dark:text-white rounded-full hover:opacity-90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "sending" ? "Sending..." : "Send Message"}
       </button>

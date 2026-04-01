@@ -21,31 +21,31 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <a
               href="#about"
-              className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+              className="text-sm hover:text-black/70 dark:hover:text-white/70"
             >
               About
             </a>
             <a
               href="#experience"
-              className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+              className="text-sm hover:text-black/70 dark:hover:text-white/70"
             >
               Experience
             </a>
             <a
               href="#skills"
-              className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+              className="text-sm hover:text-black/70 dark:hover:text-white/70"
             >
               Skills
             </a>
             <a
               href="#projects"
-              className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+              className="text-sm hover:text-black/70 dark:hover:text-white/70"
             >
               Projects
             </a>
             <a
               href="#contact"
-              className="text-sm px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90 transition-colors"
+              className="text-sm px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90"
             >
               Let&apos;s talk
             </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="w-9 h-9 flex items-center justify-center rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-lg bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -103,35 +103,35 @@ export default function Navbar() {
               <a
                 href="#about"
                 onClick={() => setIsOpen(false)}
-                className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+                className="text-sm hover:text-black/70 dark:hover:text-white/70"
               >
                 About
               </a>
               <a
                 href="#experience"
                 onClick={() => setIsOpen(false)}
-                className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+                className="text-sm hover:text-black/70 dark:hover:text-white/70"
               >
                 Experience
               </a>
               <a
                 href="#skills"
                 onClick={() => setIsOpen(false)}
-                className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+                className="text-sm hover:text-black/70 dark:hover:text-white/70"
               >
                 Skills
               </a>
               <a
                 href="#projects"
                 onClick={() => setIsOpen(false)}
-                className="text-sm hover:text-black/70 dark:hover:text-white/70 transition-colors"
+                className="text-sm hover:text-black/70 dark:hover:text-white/70"
               >
                 Projects
               </a>
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="text-sm px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90 transition-colors text-center"
+                className="text-sm px-4 py-2 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90 text-center"
               >
                 Let&apos;s talk
               </a>

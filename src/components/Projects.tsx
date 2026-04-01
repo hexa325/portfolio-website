@@ -6,7 +6,7 @@ export default function Projects() {
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="bg-black/5 dark:bg-white/5 rounded-2xl p-6 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors group"
+            className="bg-black/5 dark:bg-white/5 rounded-2xl p-6 border border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 group"
           >
             <div className="aspect-video bg-black/10 dark:bg-white/10 rounded-xl mb-4 flex items-center justify-center">
               <span
@@ -17,7 +17,7 @@ export default function Projects() {
                 Project Screenshot
               </span>
             </div>
-            <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">
+            <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400">
               Project Name {i}
             </h3>
             <p className="text-black/60 dark:text-white/60 mb-4">

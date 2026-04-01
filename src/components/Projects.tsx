@@ -9,7 +9,7 @@ export default function Projects() {
             className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-white/30 transition-colors group"
           >
             <div className="aspect-video bg-white/10 rounded-xl mb-4 flex items-center justify-center">
-              <span className="text-white/30">Project Screenshot</span>
+              <span className="text-white/30" role="img" aria-label="Project screenshot placeholder">Project Screenshot</span>
             </div>
             <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors">
               Project Name {i}

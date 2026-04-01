@@ -20,6 +20,18 @@ export const metadata: Metadata = {
     description:
       "Personal portfolio showcasing web development projects and skills.",
     type: "website",
+    locale: "en_US",
+    siteName: "Nitescu George-Eduard Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nitescu George-Eduard | Full-Stack Developer",
+    description:
+      "Personal portfolio showcasing web development projects and skills.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

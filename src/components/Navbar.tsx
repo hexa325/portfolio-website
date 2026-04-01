@@ -1,9 +1,9 @@
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 w-full bg-[#0a0a0a]/80 backdrop-blur-sm z-50 border-b border-white/10">
+    <nav aria-label="Main navigation" className="fixed top-0 w-full bg-[#0a0a0a]/80 backdrop-blur-sm z-50 border-b border-white/10">
       <div className="section-container">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold gradient-text">
+          <a href="#" className="text-xl font-bold gradient-text" aria-label="Home">
             NGE
           </a>
           <div className="hidden md:flex items-center gap-8">

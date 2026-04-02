@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className="section-container">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="text-xl font-bold gradient-text" aria-label="Home">
-            NGE
+            hexa
           </a>
 
           {/* Desktop Navigation */}

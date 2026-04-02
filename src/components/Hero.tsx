@@ -3,11 +3,11 @@ export default function Hero() {
     <section className="pt-32 pb-16 section-container">
       <div className="max-w-3xl">
         <p className="text-blue-400 mb-4">Hello, I&apos;m</p>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          Nitescu George-Eduard
+        <h1 className="text-3xl md:text-7xl font-bold mb-6 whitespace-nowrap">
+          Nițescu George-Eduard
         </h1>
         <h2 className="text-2xl md:text-3xl text-black/70 dark:text-white/70 mb-8">
-          Full-Stack Developer
+          Software Engineer
         </h2>
         <p className="text-lg text-black/60 dark:text-white/60 mb-8 max-w-2xl">
           I combine technical expertise with strategic thinking to build

@@ -1,16 +1,16 @@
 export default function Skills() {
   const skillCategories = [
     {
-      title: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS"],
+      title: "Languages & Frameworks",
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GML"],
     },
     {
-      title: "Backend",
-      skills: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs"],
+      title: "Game Dev",
+      skills: ["GameMaker Studio 2"],
     },
     {
       title: "Tools",
-      skills: ["Git", "Docker", "VS Code", "Figma", "Linux"],
+      skills: ["Git"],
     },
   ];
 

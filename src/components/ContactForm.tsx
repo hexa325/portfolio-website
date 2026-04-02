@@ -15,9 +15,18 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      const response = await fetch("https://formspree.io/f/mqegdndp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }
@@ -25,6 +34,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
           Name

@@ -11,8 +11,8 @@ export default function Hero() {
         </h2>
         <p className="text-lg text-black/60 dark:text-white/60 mb-8 max-w-2xl">
           I combine technical expertise with strategic thinking to build
-          solutions that matter. Currently focused on React, Next.js, and
-          modern web technologies.
+          solutions that matter. Driven by curiosity for new technologies
+          and approaches.
         </p>
         <div className="flex gap-4">
           <a
@@ -22,10 +22,10 @@ export default function Hero() {
             View my work
           </a>
           <a
-            href="#contact"
+            href="#download-cv"
             className="px-6 py-3 border border-black/20 dark:border-white/20 rounded-full hover:bg-black/10 dark:hover:bg-white/10"
           >
-            Download my CV
+            Check my CV
           </a>
         </div>
       </div>

@@ -13,21 +13,18 @@ export default function Contact() {
           </p>
           <div className="flex flex-wrap gap-4 mb-8">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:nitescugeorgeeduard@gmail.com"
               className="flex items-center gap-2 px-4 py-2 bg-black/10 dark:bg-white/10 rounded-full hover:bg-black/20 dark:hover:bg-white/20"
             >
               <span>Email</span>
             </a>
-            <a
-              href="https://linkedin.com/in/yourprofile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-black/10 dark:bg-white/10 rounded-full hover:bg-black/20 dark:hover:bg-white/20"
+            <span
+              className="flex items-center gap-2 px-4 py-2 bg-black/10 dark:bg-white/10 rounded-full text-black/40 dark:text-white/40 cursor-default"
             >
               <span>LinkedIn</span>
-            </a>
+            </span>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/hexa325"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 bg-black/10 dark:bg-white/10 rounded-full hover:bg-black/20 dark:hover:bg-white/20"
@@ -36,6 +33,7 @@ export default function Contact() {
             </a>
           </div>
           <a
+            id="download-cv"
             href="/cv.pdf"
             className="inline-block px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90 font-medium"
           >

@@ -19,7 +19,7 @@ export default function Projects() {
             Garison
           </h3>
           <p className="text-black/60 dark:text-white/60 mb-4">
-            A fully developed 2D top-down game built with GameMaker Studio 2, featuring a new funny experience for users, bringing its own spark to the industry.
+            A fully developed 2D top-down game built with GameMaker Studio 2, featuring a funny experience for users, bringing its own spark to the industry.
           </p>
           <div className="flex gap-2">
             <span className="px-2 py-1 bg-black/10 dark:bg-white/10 rounded text-xs">
@@ -65,9 +65,7 @@ export default function Projects() {
           </div>
         ))}
       </div>
-      <p className="text-black/40 dark:text-white/40 mt-8 text-sm italic">
-        * Placeholders — update with your real projects
-      </p>
+
     </section>
   );
 }

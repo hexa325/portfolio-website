@@ -92,8 +92,7 @@
   }
 
   .section-padding {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    @apply py-16 md:py-24;
   }
 
   .ambient-glow {

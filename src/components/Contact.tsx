@@ -3,8 +3,6 @@ import ContactForm from "./ContactForm";
 export default function Contact() {
   return (
     <section id="contact" className="section-padding section-container relative overflow-x-hidden">
-      <div className="absolute bottom-1/4 right-[-10%] w-96 h-96 bg-blue-500/5 dark:bg-blue-600/10 rounded-full blur-[150px] animate-blob pointer-events-none -z-10" />
-      
       <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div className="flex flex-col items-center md:items-start text-center md:text-left w-full max-w-full overflow-hidden px-4 md:px-0">
           <h2 className="text-3xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">

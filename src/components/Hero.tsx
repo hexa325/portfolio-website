@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-16 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-20 md:pt-32 pb-16 overflow-hidden min-h-screen flex items-center">
       {/* Premium Ambient Background with Noise */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/20 rounded-full ambient-glow animate-blob" />
@@ -16,7 +16,7 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="relative mb-8 md:mb-12 isolate w-full">
+          <div className="relative mb-6 md:mb-10 isolate w-full">
             <h1 className="text-[12vw] md:text-[10vw] font-bold leading-[0.8] tracking-tighter select-none">
               <span className="block animate-expand [animation-delay:0.1s] text-black dark:text-white">SOFTWARE</span>
               <span className="block animate-expand [animation-delay:0.2s] text-black/20 dark:text-white/20">ENGINEER</span>
@@ -24,7 +24,7 @@ export default function Hero() {
             <div className="absolute inset-0 -z-10 blur-3xl opacity-5 dark:opacity-10 bg-blue-500 animate-pulse" />
           </div>
 
-          <div className="max-w-4xl mb-12 md:mb-16 space-y-4 md:space-y-6">
+          <div className="max-w-4xl mb-8 md:mb-12 space-y-4 md:space-y-6">
             <div className="overflow-hidden">
               <h2 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] animate-reveal-up [animation-delay:0.5s] text-black dark:text-white">
                 Nițescu Eduard

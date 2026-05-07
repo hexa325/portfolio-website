@@ -3,9 +3,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: #0a0a0a;
-  --color-foreground: #ededed;
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui;
+
   --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-blob: blob 7s infinite;
+  --animate-reveal-up: revealUp 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  --animate-expand: expand 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+:root.dark {
+  --color-background: #050505;
+  --color-foreground: #ededed;
+}
+
+@keyframes expand {
+  0% {
+    letter-spacing: 1.5em;
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    letter-spacing: -0.05em;
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes revealUp {
+  0% {
+    transform: translateY(100%);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    transform: translateY(0);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 }
 
 @keyframes fadeIn {
@@ -19,66 +55,65 @@
   }
 }
 
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @apply antialiased font-sans;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
 }
 
 @layer components {
   .section-container {
-    max-width: 72rem;
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .section-container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-padding {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   .gradient-text {
-    background: linear-gradient(to right, #1a1a1a, #404040);
+    background: linear-gradient(to right, #000, #444);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   :root.dark .gradient-text {
-    background: linear-gradient(to right, #f5f5f5, #d4d4d4);
+    background: linear-gradient(to right, #fff, #888);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .ambient-glow {
+    @apply absolute -z-10 blur-[120px] opacity-20 dark:opacity-30 mix-blend-screen;
   }
 }

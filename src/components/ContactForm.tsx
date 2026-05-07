@@ -36,8 +36,8 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2">
-          Name
+        <label htmlFor="name" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">
+          Full Name
         </label>
         <input
           type="text"
@@ -46,14 +46,14 @@ export default function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-blue-400"
-          placeholder="Your name"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors"
+          placeholder="Your Name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-2">
-          Email
+        <label htmlFor="email" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">
+          Email Address
         </label>
         <input
           type="email"
@@ -62,14 +62,14 @@ export default function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
-          className="w-full px-4 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-blue-400"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors"
           placeholder="your@email.com"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message
+        <label htmlFor="message" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">
+          Your Message
         </label>
         <textarea
           id="message"
@@ -78,25 +78,27 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           required
           rows={5}
-          className="w-full px-4 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-blue-400 resize-none"
-          placeholder="Your message..."
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors resize-none"
+          placeholder="How can I help you?"
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full hover:opacity-90 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full px-8 py-5 bg-black text-white dark:bg-white dark:text-black rounded-2xl hover:scale-[1.02] transition-transform font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/5"
       >
-        {status === "sending" ? "Sending..." : "Send Message"}
+        {status === "sending" ? "Sending..." : "Submit Inquiry"}
       </button>
 
       {status === "success" && (
-        <p className="text-green-400 text-center">Message sent successfully!</p>
+        <p className="text-sm font-bold text-green-500 text-center animate-fade-in">
+          Message sent successfully! I&apos;ll be in touch soon.
+        </p>
       )}
       {status === "error" && (
-        <p className="text-red-400 text-center">
-          Failed to send message. Please try again.
+        <p className="text-sm font-bold text-red-500 text-center animate-fade-in">
+          Something went wrong. Please try again.
         </p>
       )}
     </form>

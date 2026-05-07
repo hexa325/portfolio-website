@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
+import { Inter, Syne } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-syne",
+});
 
 export const metadata: Metadata = {
   title: "Nitescu George-Eduard | Full-Stack Developer",
@@ -42,8 +55,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="bg-white text-black dark:bg-[#0a0a0a] dark:text-[#ededed]">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${syne.variable}`}
+    >
+      <body className="bg-white text-black dark:bg-[#050505] dark:text-[#ededed] font-sans">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

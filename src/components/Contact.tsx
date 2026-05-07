@@ -5,8 +5,8 @@ export default function Contact() {
     <section id="contact" className="section-padding section-container relative overflow-hidden">
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/10 blur-[150px] -z-10" />
       
-      <div className="grid md:grid-cols-2 gap-16 items-start">
-        <div>
+      <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="text-center md:text-left flex flex-col items-center md:items-start">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-8">
             Let&apos;s <br /> <span className="text-black/20 dark:text-white/20">Collaborate</span>
           </h2>
@@ -15,12 +15,12 @@ export default function Contact() {
             Whether you have a question or just want to say hi, feel free to reach out!
           </p>
           
-          <div className="space-y-6 mb-12">
+          <div className="space-y-6 mb-12 w-full max-w-md">
             <a
               href="mailto:nitescugeorgeeduard@gmail.com"
               className="group flex items-center justify-between p-6 bg-white/50 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 transition-all"
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col text-left">
                 <span className="text-xs font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-1">Email</span>
                 <span className="text-lg font-bold">nitescugeorgeeduard@gmail.com</span>
               </div>
@@ -35,7 +35,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="group flex items-center justify-between p-6 bg-white/50 dark:bg-white/5 rounded-2xl border border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 transition-all"
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col text-left">
                 <span className="text-xs font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-1">GitHub</span>
                 <span className="text-lg font-bold">hexa325</span>
               </div>

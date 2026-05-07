@@ -1,7 +1,7 @@
 export default function Experience() {
   return (
     <section id="experience" className="section-padding section-container">
-      <div className="flex flex-col md:flex-row gap-12 items-start">
+      <div className="flex flex-col md:flex-row gap-12 items-start text-center md:text-left">
         <div className="md:w-1/3">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">
             Experience

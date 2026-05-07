@@ -25,7 +25,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="section-padding section-container">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 items-center text-center md:text-left md:items-end">
         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">
           Selected <br /> <span className="text-black/20 dark:text-white/20">Works</span>
         </h2>
@@ -56,8 +56,8 @@ export default function Projects() {
                 )}
               </div>
               
-              <div className="p-8 md:p-12">
-                <div className="flex flex-wrap gap-2 mb-6">
+              <div className="p-8 md:p-12 flex flex-col items-center md:items-start text-center md:text-left">
+                <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
                   {project.tags.map(tag => (
                     <span key={tag} className="text-[10px] uppercase tracking-widest font-bold px-3 py-1 bg-black/5 dark:bg-white/10 rounded-full">
                       {tag}

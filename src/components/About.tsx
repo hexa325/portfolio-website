@@ -1,8 +1,8 @@
 export default function About() {
   return (
     <section id="about" className="section-padding section-container">
-      <div className="grid md:grid-cols-2 gap-16 items-start">
-        <div>
+      <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="text-center md:text-left">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tighter">
             About Me
           </h2>

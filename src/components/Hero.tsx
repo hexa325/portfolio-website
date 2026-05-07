@@ -10,14 +10,14 @@ export default function Hero() {
 
       <div className="section-container relative z-10 w-full">
         <div className="flex flex-col items-center text-center">
-          <div className="mb-8 h-6 overflow-hidden">
-            <span className="block font-display text-xs uppercase tracking-[0.5em] text-black/40 dark:text-white/30 animate-reveal-up">
+          <div className="mb-6 md:mb-8 h-auto overflow-hidden">
+            <span className="block font-display text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.5em] text-black/40 dark:text-white/30 animate-reveal-up">
               Crafting Digital Excellence
             </span>
           </div>
 
-          <div className="relative mb-8 md:mb-12 isolate">
-            <h1 className="text-[14vw] md:text-[10vw] font-bold leading-[0.8] tracking-tighter select-none">
+          <div className="relative mb-8 md:mb-12 isolate w-full">
+            <h1 className="text-[12vw] md:text-[10vw] font-bold leading-[0.8] tracking-tighter select-none">
               <span className="block animate-expand [animation-delay:0.1s] text-black dark:text-white">SOFTWARE</span>
               <span className="block animate-expand [animation-delay:0.2s] text-black/20 dark:text-white/20">ENGINEER</span>
             </h1>

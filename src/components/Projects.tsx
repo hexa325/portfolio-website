@@ -1,11 +1,14 @@
 import Image from "next/image";
 
+const isGitHubPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true";
+const basePath = isGitHubPages ? "/portfolio-website" : "";
+
 const projects = [
   {
     title: "Garison",
     description: "A fully developed 2D top-down game built with GameMaker Studio 2, featuring a unique experience and bringing its own spark to the industry.",
     tags: ["GML", "Game Design", "Git"],
-    image: "/projects/project1.png",
+    image: `${basePath}/projects/project1.png`,
     isLarge: true
   },
   {

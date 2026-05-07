@@ -1,11 +1,10 @@
 export default function Hero() {
   return (
     <section className="relative pt-20 md:pt-32 pb-16 overflow-hidden min-h-screen flex items-center">
-      {/* Premium Ambient Background with Noise */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* Premium Ambient Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,black_80%,transparent)]">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/20 rounded-full ambient-glow animate-blob" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full ambient-glow animate-blob [animation-delay:2s]" />
-        <div className="noise-overlay" />
       </div>
 
       <div className="section-container relative z-10 w-full">

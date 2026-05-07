@@ -29,7 +29,7 @@ export default function About() {
               ].map((fact, i) => (
                 <li key={i} className="flex items-center gap-4 text-black/60 dark:text-white/60 group/item">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover/item:bg-blue-500 transition-colors" />
-                  <span className="group-hover/item:text-black dark:group-hover/item:white transition-colors">{fact}</span>
+                  <span className="group-hover/item:text-black dark:group-hover/item:text-white transition-colors">{fact}</span>
                 </li>
               ))}
             </ul>

@@ -46,7 +46,7 @@ export default function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 focus:outline-none focus:border-blue-500/30 dark:focus:border-blue-500/20 transition-all"
           placeholder="Your Name"
         />
       </div>
@@ -62,7 +62,7 @@ export default function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 focus:outline-none focus:border-blue-500/30 dark:focus:border-blue-500/20 transition-all"
           placeholder="your@email.com"
         />
       </div>
@@ -78,7 +78,7 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           required
           rows={5}
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors resize-none"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 focus:outline-none focus:border-blue-500/30 dark:focus:border-blue-500/20 transition-all resize-none"
           placeholder="How can I help you?"
         />
       </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Syne } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import MouseTorch from "@/components/MouseTorch";
+import ModernMesh from "@/components/ModernMesh";
 import "./globals.css";
 
 const inter = Inter({
@@ -63,7 +63,7 @@ export default function RootLayout({
     >
       <body className="bg-white text-black dark:bg-[#050505] dark:text-[#ededed] font-sans">
         <ThemeProvider>
-          <MouseTorch />
+          <ModernMesh />
           {children}
         </ThemeProvider>
       </body>

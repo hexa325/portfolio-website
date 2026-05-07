@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="section-container relative z-10 w-full">
         <div className="flex flex-col items-center text-center">
           <div className="mb-6 md:mb-8 h-auto overflow-hidden">
-            <span className="block font-display text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.5em] text-black/40 dark:text-white/30 animate-reveal-up">
+            <span className="block font-display text-[10px] md:text-xs uppercase tracking-widest md:tracking-[0.5em] text-black/40 dark:text-white/30 animate-reveal-up">
               Crafting Digital Excellence
             </span>
           </div>

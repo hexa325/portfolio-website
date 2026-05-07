@@ -86,9 +86,12 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full px-8 py-5 bg-black text-white dark:bg-white dark:text-black rounded-2xl hover:scale-[1.02] transition-transform font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/5"
+        className="group relative w-full px-8 py-5 bg-black text-white dark:bg-white dark:text-black rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/5"
       >
-        {status === "sending" ? "Sending..." : "Submit Inquiry"}
+        <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">
+          {status === "sending" ? "Sending..." : "Submit Inquiry"}
+        </span>
+        <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-2xl" />
       </button>
 
       {status === "success" && (

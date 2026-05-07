@@ -45,9 +45,10 @@ export default function Navbar() {
             </a>
             <a
               href="#contact"
-              className="text-xs uppercase tracking-widest font-bold px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full hover:scale-105 transition-transform"
+              className="group relative text-xs uppercase tracking-widest font-bold px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
             >
-              Contact
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Contact</span>
+              <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
             </a>
             <div className="h-4 w-[1px] bg-black/10 dark:bg-white/10 mx-2" />
             <ThemeToggle />
@@ -132,9 +133,10 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-display font-bold px-6 py-4 bg-black text-white dark:bg-white dark:text-black rounded-full"
+                className="group relative text-lg font-display font-bold px-6 py-4 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-all duration-300"
               >
-                Contact
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Contact</span>
+                <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
               </a>
             </div>
           </div>

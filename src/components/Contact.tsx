@@ -48,9 +48,10 @@ export default function Contact() {
           <a
             id="download-cv"
             href="/cv.pdf"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-white dark:bg-white dark:text-black rounded-full hover:scale-105 transition-transform font-bold text-sm uppercase tracking-wider shadow-2xl shadow-blue-500/20"
+            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-all duration-300 hover:scale-105 font-bold text-sm uppercase tracking-wider shadow-2xl shadow-blue-500/20"
           >
-            Download CV
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Download CV</span>
+            <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
           </a>
         </div>
         

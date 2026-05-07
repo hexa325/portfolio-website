@@ -5,12 +5,12 @@ export default function Contact() {
     <section id="contact" className="section-padding section-container relative overflow-hidden">
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/10 blur-[150px] -z-10" />
       
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-8">
+      <div className="grid md:grid-cols-2 gap-16 items-center justify-items-center">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left w-full">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-8 w-full">
             Let&apos;s <br /> <span className="text-black/20 dark:text-white/20">Collaborate</span>
           </h2>
-          <p className="text-xl text-black/70 dark:text-white/70 mb-12 leading-relaxed max-w-md">
+          <p className="text-xl text-black/70 dark:text-white/70 mb-12 leading-relaxed max-w-md w-full">
             I&apos;m always open to new opportunities and interesting projects.
             Whether you have a question or just want to say hi, feel free to reach out!
           </p>

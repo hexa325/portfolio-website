@@ -21,10 +21,11 @@ export default function Skills() {
         {skillCategories.map((category) => (
           <div
             key={category.title}
-            className="bg-black/5 dark:bg-white/5 rounded-2xl p-6 border border-black/10 dark:border-white/10 flex flex-col items-center md:items-start text-center md:text-left"
+            className="group/card relative bg-black/5 dark:bg-white/5 rounded-2xl p-6 border border-black/10 dark:border-white/10 flex flex-col items-center md:items-start text-center md:text-left overflow-hidden transition-all duration-500 hover:border-blue-500/30"
           >
-            <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+            <h3 className="text-xl font-semibold mb-4 relative z-10">{category.title}</h3>
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start relative z-10">
               {category.skills.map((skill) => (
                 <span
                   key={skill}

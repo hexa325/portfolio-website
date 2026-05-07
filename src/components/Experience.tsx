@@ -1,6 +1,7 @@
 export default function Experience() {
   return (
-    <section id="experience" className="section-padding section-container">
+    <section id="experience" className="section-padding section-container relative overflow-hidden">
+      <div className="absolute top-1/2 right-[-10%] w-96 h-96 bg-purple-500/5 dark:bg-purple-600/10 rounded-full blur-[120px] animate-blob pointer-events-none -z-10" />
       <div className="flex flex-col md:flex-row gap-12 items-start text-center md:text-left">
         <div className="md:w-1/3">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">

@@ -91,7 +91,7 @@ export default function ContactForm() {
         <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">
           {status === "sending" ? "Sending..." : "Submit Inquiry"}
         </span>
-        <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-2xl" />
+        <div className="absolute inset-0 bg-neutral-800 dark:bg-neutral-200 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-2xl" />
       </button>
 
       {status === "success" && (

@@ -39,7 +39,7 @@ export default function ModernMesh() {
     <div className="mesh-background">
       {/* LAYER 1: DAWN (Vibrant) */}
       <div 
-        className="mesh-gradient absolute inset-0 transition-opacity duration-700" 
+        className="mesh-gradient absolute inset-0 transition-opacity duration-700 will-change-[opacity]" 
         style={{ 
           opacity: dawnOpacity * 0.8,
           backgroundImage: `
@@ -53,7 +53,7 @@ export default function ModernMesh() {
 
       {/* LAYER 2: TWILIGHT (Deep Indigo) */}
       <div 
-        className="mesh-gradient absolute inset-0 transition-opacity duration-700" 
+        className="mesh-gradient absolute inset-0 transition-opacity duration-700 will-change-[opacity]" 
         style={{ 
           opacity: twilightOpacity * 0.6,
           backgroundImage: `
@@ -65,7 +65,7 @@ export default function ModernMesh() {
 
       {/* LAYER 3: THE VOID (Black/Dark Blue) */}
       <div 
-        className="mesh-gradient absolute inset-0 transition-opacity duration-700" 
+        className="mesh-gradient absolute inset-0 transition-opacity duration-700 will-change-[opacity]" 
         style={{ 
           opacity: voidOpacity * 0.9,
           backgroundImage: `

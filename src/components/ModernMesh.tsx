@@ -12,6 +12,8 @@ export default function ModernMesh() {
     setMounted(true);
     
     const handleScroll = () => {
+      // Disable scroll calculations on mobile to prevent snapping and artifacts
+      if (typeof window === "undefined" || window.innerWidth <= 768) return;
       if (!containerRef.current) return;
       
       const position = window.scrollY;

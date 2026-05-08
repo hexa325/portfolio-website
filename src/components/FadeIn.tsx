@@ -17,15 +17,16 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            ref.current?.classList.add("animate-fade-in");
-            ref.current?.classList.remove("opacity-0");
+            ref.current?.classList.add("opacity-100");
+            ref.current?.classList.remove("opacity-0", "translate-y-4");
           }, delay);
-        } else {
-          ref.current?.classList.remove("animate-fade-in");
-          ref.current?.classList.add("opacity-0");
+          observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { 
+        threshold: 0.05,
+        rootMargin: "0px 0px -50px 0px"
+      }
     );
 
     observer.observe(ref.current);
@@ -33,7 +34,7 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   }, [delay]);
 
   return (
-    <div ref={ref} className="opacity-0">
+    <div ref={ref} className="opacity-0 translate-y-4 transition-all duration-1000 ease-out will-change-[opacity,transform]">
       {children}
     </div>
   );

@@ -1,8 +1,8 @@
 export default function Hero() {
   return (
-    <section className="relative pt-20 md:pt-32 pb-16 overflow-hidden min-h-screen flex items-center">
+    <section className="relative pt-20 md:pt-32 pb-16 overflow-hidden min-h-[100dvh] flex items-center">
       {/* Premium Ambient Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,black_80%,transparent)]">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/20 rounded-full ambient-glow animate-blob" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full ambient-glow animate-blob [animation-delay:2s]" />
       </div>
@@ -29,13 +29,7 @@ export default function Hero() {
                 Nițescu Eduard
               </h2>
             </div>
-            <div className="overflow-hidden">
-              <p className="text-xl md:text-3xl font-display font-medium text-black/40 dark:text-white/40 animate-reveal-up [animation-delay:0.7s]">
-                aka hexa
-              </p>
-            </div>
-            
-            <p className="text-base md:text-xl text-black/50 dark:text-white/50 leading-relaxed max-w-2xl mx-auto animate-fade-in [animation-delay:1s]">
+            <p className="text-base md:text-xl text-black/50 dark:text-white/50 leading-relaxed max-w-2xl mx-auto animate-fade-in [animation-delay:0.8s]">
               Transforming complex challenges into <span className="text-black dark:text-white italic">clean, performant</span>, and <span className="text-black dark:text-white">human-centered</span> digital experiences.
             </p>
           </div>

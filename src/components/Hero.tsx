@@ -1,15 +1,6 @@
-export default function Hero() {
-  const HyperShatter = ({ children, className, shardClassPrefix, count }: { children: string; className?: string; shardClassPrefix: string; count: number }) => (
-    <div className={`hyper-container ${className}`}>
-      <span className="hyper-base block">{children}</span>
-      {Array.from({ length: count }).map((_, i) => (
-        <span key={i} className={`hyper-layer ${shardClassPrefix}-${i + 1} block`} aria-hidden="true">
-          {children}
-        </span>
-      ))}
-    </div>
-  );
+import HyperShatter from "./HyperShatter";
 
+export default function Hero() {
   return (
     <section id="hero" className="relative pt-32 md:pt-40 pb-24 md:pb-32 min-h-screen flex items-center overflow-hidden">
       <div className="section-container relative z-10 w-full">

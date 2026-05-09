@@ -5,31 +5,41 @@ import { useTheme } from "next-themes";
 
 export default function ModernMesh() {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
     
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
     const handleScroll = () => {
-      // Disable scroll calculations on mobile to prevent snapping and artifacts
-      if (typeof window === "undefined" || window.innerWidth <= 768) return;
+      // Disable scroll calculations on mobile
+      if (window.innerWidth <= 768) return;
       if (!containerRef.current) return;
       
       const position = window.scrollY;
       const height = document.documentElement.scrollHeight - window.innerHeight;
       const progress = height > 0 ? Math.min(position / height, 1) : 0;
       
-      // Update CSS variables instead of React state to avoid re-renders
       containerRef.current.style.setProperty("--scroll-progress", progress.toString());
     };
 
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || isMobile) return null;
 
   const isDark = resolvedTheme === "dark";
 

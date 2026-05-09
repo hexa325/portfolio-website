@@ -12,13 +12,19 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
 
   useEffect(() => {
     if (!ref.current) return;
+    
+    const isMobile = window.innerWidth <= 768;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setTimeout(() => {
-            ref.current?.classList.add("opacity-100");
-            ref.current?.classList.remove("opacity-0", "translate-y-4");
+            if (ref.current) {
+              ref.current.classList.add("opacity-100");
+              if (!isMobile) {
+                ref.current.classList.remove("translate-y-4");
+              }
+            }
           }, delay);
           observer.unobserve(entry.target);
         }
@@ -34,7 +40,7 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   }, [delay]);
 
   return (
-    <div ref={ref} className="opacity-0 translate-y-4 transition-all duration-1000 ease-out will-change-[opacity,transform]">
+    <div ref={ref} className="opacity-0 md:translate-y-4 transition-all duration-1000 ease-out will-change-[opacity,transform]">
       {children}
     </div>
   );

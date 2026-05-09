@@ -8,11 +8,23 @@ const basePath = isGitHubPages ? "/portfolio-website" : "";
 const projects = [
   {
     title: "Garison",
-    description: "A fast-paced local multiplayer game where strategy meets chaos.",
+    description: "A fully developed 2D top-down game built with GameMaker Studio 2, featuring a unique experience and bringing its own spark to the industry.",
     image: `${basePath}/projects/project1.png`,
-    tags: ["GML", "Game Design", "Multiplayer"],
+    tags: ["GML", "Game Design", "Git"],
     link: "#",
   },
+  {
+    title: "Project Alpha",
+    description: "Advanced data visualization dashboard for complex systems management.",
+    tags: ["Next.js", "D3.js", "TS"],
+    image: null,
+  },
+  {
+    title: "Project Beta",
+    description: "E-commerce platform with focus on high-performance and accessibility.",
+    tags: ["React", "Tailwind", "Stripe"],
+    image: null,
+  }
 ];
 
 export default function Projects() {
@@ -27,7 +39,7 @@ export default function Projects() {
         <h2 className="md:hidden text-4xl font-bold tracking-tighter text-center">
           Featured Projects
         </h2>
-        <div className="w-12 h-1.5 bg-blue-600 rounded-full mt-6 animate-expand" />
+        <div className="w-12 h-1.5 bg-blue-600 rounded-full mt-6" />
       </div>
 
       <div className="grid gap-16 md:gap-32">
@@ -35,12 +47,18 @@ export default function Projects() {
           <KineticReveal key={index} stagger={index + 1}>
             <div className="group relative grid md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div className="relative aspect-video overflow-hidden rounded-[2rem] border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-black/10 dark:text-white/10 font-display font-bold text-4xl uppercase tracking-tighter">
+                    {project.title}
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 

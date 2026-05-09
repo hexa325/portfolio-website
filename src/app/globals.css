@@ -46,8 +46,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* REFINEMENT: Tighter landing offset (4rem instead of 5rem) */
-    scroll-padding-top: 4rem;
+    /* REFINEMENT: Tighter landing offset (5rem instead of 5rem) */
+    scroll-padding-top: 5rem;
     height: auto;
   }
 
@@ -81,7 +81,7 @@
 
   /* REFINEMENT: Tighter native alignment for navigation */
   section {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 5rem;
   }
 
   /* Specific reset for Hero which is at the top */

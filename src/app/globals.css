@@ -46,7 +46,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* REFINEMENT: Tighter landing offset (5rem instead of 5rem) */
     scroll-padding-top: 5rem;
     height: auto;
   }
@@ -77,9 +76,23 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* FLICKER FIX: Centralized high-performance theme transition */
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
   }
 
-  /* REFINEMENT: Tighter native alignment for navigation */
+  /* FLICKER FIX: Ensure child elements inherit the body transition without competing */
+  body * {
+    transition-duration: inherit;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: inherit;
+  }
+
+  /* Specific exclusions where we WANT fast response (like buttons/hovers) */
+  button, a, input, textarea {
+    transition-duration: 300ms !important;
+  }
+
+  /* Native modern alignment for navigation */
   section {
     scroll-margin-top: 5rem;
   }
@@ -103,7 +116,6 @@
     padding-right: 1.5rem;
   }
 
-  /* RESTORATION: Original premium whitespace spacing */
   .section-padding {
     @apply py-20 md:py-32;
   }

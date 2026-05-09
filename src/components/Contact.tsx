@@ -16,7 +16,7 @@ export default function Contact() {
           <div className="space-y-4 md:space-y-6 mb-12 w-full max-w-md mx-auto md:mx-0">
             <a
               href="mailto:nitescugeorgeeduard@gmail.com"
-              className="group flex items-center justify-between p-5 md:p-6 bg-white dark:bg-white/5 md:bg-white/50 rounded-2xl border border-black/10 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 transition-colors overflow-hidden"
+              className="group flex items-center justify-between p-5 md:p-6 bg-white dark:bg-white/5 md:bg-white/50 rounded-2xl border border-black/10 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 overflow-hidden"
             >
               <div className="flex flex-col text-left overflow-hidden mr-2">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-1">Email</span>
@@ -31,7 +31,7 @@ export default function Contact() {
               href="https://github.com/hexa325"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between p-5 md:p-6 bg-white dark:bg-white/5 md:bg-white/50 rounded-2xl border border-black/10 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 transition-colors"
+              className="group flex items-center justify-between p-5 md:p-6 bg-white dark:bg-white/5 md:bg-white/50 rounded-2xl border border-black/10 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20"
             >
               <div className="flex flex-col text-left">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-black/40 dark:text-white/40 mb-1">GitHub</span>
@@ -47,7 +47,7 @@ export default function Contact() {
             <a
               id="download-cv"
               href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/cv.pdf" : "/cv.pdf"}
-              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-colors duration-300 md:hover:scale-105 font-bold text-sm uppercase tracking-wider"
+              className="group relative inline-flex items-center gap-3 px-10 py-5 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden md:hover:scale-105 font-bold text-sm uppercase tracking-wider"
             >
               <span className="relative z-10 transition-colors duration-300 md:group-hover:text-white dark:md:group-hover:text-black">Download CV</span>
               <div className="absolute inset-0 bg-blue-600 translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
@@ -55,7 +55,7 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="bg-white dark:bg-[#0a0a0a] md:bg-white/80 md:dark:bg-black/80 md:backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-black/10 dark:border-white/10 transition-colors duration-500">
+        <div className="bg-white dark:bg-[#0a0a0a] md:bg-white/80 md:dark:bg-black/80 md:backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-black/10 dark:border-white/10">
           <ContactForm />
         </div>
       </div>

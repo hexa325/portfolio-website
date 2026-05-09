@@ -63,6 +63,7 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 3.5rem;
+    height: auto;
   }
 
   /* Disable smooth scroll on mobile to stop snapping artifacts */
@@ -75,9 +76,13 @@
   body {
     @apply antialiased font-sans bg-white dark:bg-[#050505] text-black dark:text-[#ededed];
     width: 100%;
+    min-height: 100dvh;
+    height: auto;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: auto;
   }
 
   section {

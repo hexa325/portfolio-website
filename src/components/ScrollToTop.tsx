@@ -23,9 +23,10 @@ export default function ScrollToTop() {
 
   const scrollToTop = () => {
     setIsVisible(false);
+    const isMobile = window.innerWidth <= 768;
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: isMobile ? "auto" : "smooth",
     });
   };
 

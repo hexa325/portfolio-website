@@ -46,7 +46,24 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Define global landing offset for anchors */
+    scroll-padding-top: 5rem;
     height: 100%;
+  }
+
+  /* Disable smooth scroll on mobile to stop snapping artifacts */
+  @media (max-width: 768px) {
+    html {
+      scroll-behavior: auto !important;
+    }
+    
+    * {
+      transition: none !important;
+      animation: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      box-shadow: none !important;
+    }
   }
 
   body {
@@ -60,32 +77,14 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* MOBILE PERFORMANCE OVERRIDES */
-  @media (max-width: 768px) {
-    * {
-      /* Disable all transitions and animations for instant mobile response */
-      transition: none !important;
-      animation: none !important;
-      /* Remove heavy filters */
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-      box-shadow: none !important;
-    }
-    
-    html {
-      scroll-behavior: auto !important;
-    }
-  }
-
+  /* Native modern alignment for navigation */
   section {
-    position: relative;
-    padding-top: 5rem;
-    margin-top: -5rem;
+    scroll-margin-top: 5rem;
   }
 
+  /* Specific reset for Hero which is at the top */
   #hero, section:first-of-type {
-    padding-top: 0;
-    margin-top: 0;
+    scroll-margin-top: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {

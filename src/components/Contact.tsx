@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding section-container relative overflow-x-hidden">
       <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div className="flex flex-col items-center md:items-start text-center md:text-left w-full max-w-full overflow-hidden px-4 md:px-0">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left w-full max-w-full px-4 md:px-0">
           <h2 className="text-3xl md:text-6xl font-bold tracking-tighter mb-8 leading-tight">
             Let&apos;s <br /> <span className="text-black/20 dark:text-white/20">Collaborate</span>
           </h2>
@@ -43,14 +43,14 @@ export default function Contact() {
             </a>
           </div>
 
-          <div className="overflow-hidden rounded-full">
+          <div className="rounded-full">
             <a
               id="download-cv"
               href="/cv.pdf"
               className="group relative inline-flex items-center gap-3 px-10 py-5 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-all duration-300 hover:scale-105 font-bold text-sm uppercase tracking-wider shadow-xl shadow-black/5 dark:shadow-white/10"
             >
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Download CV</span>
-              <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
             </a>
           </div>
         </div>

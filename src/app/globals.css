@@ -45,10 +45,11 @@
 
 @layer base {
   html {
+    /* Native scrolling for all platforms */
     scroll-behavior: smooth;
-    /* Define global landing offset for anchors */
     scroll-padding-top: 5rem;
-    height: 100%;
+    height: auto;
+    overflow-x: hidden;
   }
 
   /* Disable smooth scroll on mobile to stop snapping artifacts */
@@ -56,7 +57,22 @@
     html {
       scroll-behavior: auto !important;
     }
-    
+  }
+
+  body {
+    @apply antialiased font-sans bg-white dark:bg-[#050505] text-black dark:text-[#ededed];
+    width: 100%;
+    min-height: 100dvh;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible; /* CRITICAL: Return scroll to viewport */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* MOBILE PERFORMANCE OVERRIDES */
+  @media (max-width: 768px) {
     * {
       transition: none !important;
       animation: none !important;
@@ -64,17 +80,6 @@
       -webkit-backdrop-filter: none !important;
       box-shadow: none !important;
     }
-  }
-
-  body {
-    @apply antialiased font-sans bg-white dark:bg-[#050505] text-black dark:text-[#ededed];
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
 
   /* Native modern alignment for navigation */
@@ -89,6 +94,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
+  }
+
+  * {
+    will-change: auto !important;
   }
 }
 

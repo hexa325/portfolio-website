@@ -49,6 +49,7 @@
     /* Define global landing offset for anchors */
     scroll-padding-top: 5rem;
     height: 100%;
+    color-scheme: light dark;
   }
 
   /* Disable smooth scroll on mobile to stop snapping artifacts */

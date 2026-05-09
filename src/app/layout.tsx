@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "color-scheme": "light dark",
+  },
 };
 
 export default function RootLayout({

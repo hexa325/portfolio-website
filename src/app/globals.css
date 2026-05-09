@@ -81,7 +81,8 @@
   body {
     @apply antialiased font-sans bg-white dark:bg-[#050505] text-black dark:text-[#ededed];
     width: 100%; min-height: 100vh; height: auto;
-    overflow-x: hidden; overflow-y: auto;
+    overflow-x: hidden; 
+    overflow-y: visible; /* CRITICAL: Restore viewport scroll */
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     transition: background-color 0.5s ease, color 0.5s ease;
@@ -105,7 +106,8 @@
   @media (min-width: 769px) {
     .reveal-kinetic {
       opacity: 0;
-      transform: translate3d(0, 150px, 1000px) rotateX(-45deg) scale(0.8);
+      /* PRECISE: Small Y-shift to prevent navigation offset while maintaining kinetic vibe */
+      transform: translate3d(0, 40px, 800px) rotateX(-30deg) scale(0.9);
       transition: 
         transform 1.8s cubic-bezier(0.16, 1, 0.3, 1),
         opacity 1.5s ease;

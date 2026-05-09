@@ -8,10 +8,12 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import KineticReveal from "@/components/KineticReveal";
+import ScrollReset from "@/components/ScrollReset";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <ScrollReset />
       <a
         href="#about"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded"
@@ -22,25 +24,35 @@ export default function Home() {
       <Navbar />
       <Hero />
       
-      <KineticReveal>
-        <About />
-      </KineticReveal>
+      <div id="about">
+        <KineticReveal>
+          <About />
+        </KineticReveal>
+      </div>
       
-      <KineticReveal>
-        <Experience />
-      </KineticReveal>
+      <div id="experience">
+        <KineticReveal>
+          <Experience />
+        </KineticReveal>
+      </div>
       
-      <KineticReveal>
-        <Skills />
-      </KineticReveal>
+      <div id="skills">
+        <KineticReveal>
+          <Skills />
+        </KineticReveal>
+      </div>
       
-      <KineticReveal>
-        <Projects />
-      </KineticReveal>
+      <div id="projects">
+        <KineticReveal>
+          <Projects />
+        </KineticReveal>
+      </div>
       
-      <KineticReveal>
-        <Contact />
-      </KineticReveal>
+      <div id="contact">
+        <KineticReveal>
+          <Contact />
+        </KineticReveal>
+      </div>
       
       <Footer />
       <ScrollToTop />

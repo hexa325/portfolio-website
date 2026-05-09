@@ -86,7 +86,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group ui-btn relative w-full px-8 py-5 rounded-2xl overflow-hidden md:hover:scale-[1.02] font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/10"
+        className="group relative w-full px-8 py-5 bg-black text-white dark:bg-white dark:text-black rounded-2xl overflow-hidden md:hover:scale-[1.02] font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/10"
       >
         <span className="relative z-10 md:group-hover:text-white dark:md:group-hover:text-black">
           {status === "sending" ? "Sending..." : "Submit Inquiry"}

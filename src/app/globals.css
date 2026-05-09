@@ -2,37 +2,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* REGISTER CSS PROPERTIES FOR SMOOTH INTERPOLATION */
-@property --btn-bg {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #000000;
-}
-
-@property --btn-text {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: #ffffff;
-}
-
-@property --card-bg {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(255, 255, 255, 0.5);
-}
-
-@property --card-border {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(0, 0, 0, 0.1);
-}
-
-@property --form-container {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(255, 255, 255, 0.8);
-}
-
 @theme inline {
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
@@ -46,22 +15,9 @@
   --animate-expand: expand 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-:root {
-  --btn-bg: #000000;
-  --btn-text: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.5);
-  --card-border: rgba(0, 0, 0, 0.1);
-  --form-container: rgba(255, 255, 255, 0.8);
-}
-
 :root.dark {
   --color-background: #050505;
   --color-foreground: #ededed;
-  --btn-bg: #ffffff;
-  --btn-text: #000000;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --form-container: rgba(0, 0, 0, 0.8);
 }
 
 /* GPU-ACCELERATED PREMIUM ANIMATIONS */
@@ -94,7 +50,14 @@
     height: auto;
   }
 
-  /* Disable smooth scroll on mobile to stop snapping artifacts */
+  /* GLOBAL THEME SYNC: Force every element to transition in absolute lockstep */
+  *, *::before, *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Disable smooth scroll and transitions on mobile to stop snapping artifacts */
   @media (max-width: 768px) {
     html {
       scroll-behavior: auto !important;
@@ -120,20 +83,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* SHARPENED TRANSITION: 200ms is standard for premium UI */
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
   }
 
-  /* FLICKER FIX: Synchronized inheritance for all UI elements */
-  body * {
-    transition-duration: inherit;
-    transition-property: background-color, border-color, color, fill, stroke, --btn-bg, --btn-text, --card-bg, --card-border, --form-container;
-    transition-timing-function: inherit;
-  }
-
-  /* Faster response for interactive components */
-  button, a, input, textarea {
-    transition-duration: 200ms !important;
+  /* Specific exclusion for immediate interactive feedback (hovers) */
+  .no-sync {
+    transition: none !important;
   }
 
   section {
@@ -200,26 +154,12 @@
 
   @keyframes meshScroll {
     0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-    50% { transform: translate3d(5%, 5%, 0) rotate(2deg) scale(1.1); }
+    50% { transform: translate3d(-5%, 5%, 0) rotate(2deg) scale(1.1); }
     100% { transform: translate3d(5%, -5%, 0) rotate(-2deg) scale(1); }
   }
 
   .noise-overlay {
     @apply absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay contrast-150 brightness-125;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  .ui-btn {
-    background-color: var(--btn-bg);
-    color: var(--btn-text);
-  }
-  
-  .ui-card {
-    background-color: var(--card-bg);
-    border-color: var(--card-border);
-  }
-  
-  .ui-form-container {
-    background-color: var(--form-container);
   }
 }

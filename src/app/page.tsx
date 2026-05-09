@@ -7,7 +7,6 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import FadeIn from "@/components/FadeIn";
 
 export default function Home() {
   return (
@@ -18,23 +17,14 @@ export default function Home() {
       >
         Skip to main content
       </a>
+      
       <Navbar />
       <Hero />
-      <FadeIn>
-        <About />
-      </FadeIn>
-      <FadeIn delay={100}>
-        <Experience />
-      </FadeIn>
-      <FadeIn delay={100}>
-        <Skills />
-      </FadeIn>
-      <FadeIn delay={100}>
-        <Projects />
-      </FadeIn>
-      <FadeIn delay={100}>
-        <Contact />
-      </FadeIn>
+      <About />
+      <Experience />
+      <Skills />
+      <Projects />
+      <Contact />
       <Footer />
       <ScrollToTop />
     </main>

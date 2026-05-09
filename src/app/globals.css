@@ -46,10 +46,9 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-    /* PERFORMANCE: Remove height constraint to let native viewport handle scroll */
+    /* REFINEMENT: Tighter landing offset (4rem instead of 5rem) */
+    scroll-padding-top: 4rem;
     height: auto;
-    overflow-x: visible;
   }
 
   /* Disable smooth scroll on mobile to stop snapping artifacts */
@@ -64,7 +63,6 @@
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       box-shadow: none !important;
-      /* Remove dynamic viewport dependency to stop layout thrashing */
       min-height: 0 !important;
     }
   }
@@ -72,7 +70,6 @@
   body {
     @apply antialiased font-sans bg-white dark:bg-[#050505] text-black dark:text-[#ededed];
     width: 100%;
-    /* PERFORMANCE: Static height prevents 'snapping' when address bar toggles */
     min-height: 100vh;
     height: auto;
     overflow-x: hidden;
@@ -82,9 +79,9 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Native modern alignment for navigation */
+  /* REFINEMENT: Tighter native alignment for navigation */
   section {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4rem;
   }
 
   /* Specific reset for Hero which is at the top */
@@ -106,8 +103,9 @@
     padding-right: 1.5rem;
   }
 
+  /* RESTORATION: Original premium whitespace spacing */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-32;
   }
 
   .ambient-glow {

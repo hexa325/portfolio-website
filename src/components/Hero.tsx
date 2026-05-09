@@ -11,12 +11,12 @@ export default function Hero() {
   );
 
   return (
-    <section id="hero" className="relative pt-32 md:pt-40 pb-24 md:pb-32 min-h-screen flex items-center overflow-hidden hero-3d-stage">
+    <section id="hero" className="relative pt-32 md:pt-40 pb-24 md:pb-32 min-h-screen flex items-center overflow-hidden">
       <div className="section-container relative z-10 w-full">
         <div className="flex flex-col items-center text-center">
-          {/* TAGLINE: 3D Entrance */}
-          <div className="mb-10 md:mb-12 h-auto overflow-hidden md:reveal-3d [animation-delay:0.2s]">
-            <span className="block font-display text-[10px] md:text-xs uppercase tracking-widest md:tracking-[0.5em] text-black/40 dark:text-white/30">
+          {/* TAGLINE: Elegant Entrance */}
+          <div className="mb-10 md:mb-12 h-auto overflow-hidden">
+            <span className="block font-display text-[10px] md:text-xs uppercase tracking-widest md:tracking-[0.5em] text-black/40 dark:text-white/30 animate-reveal-up">
               Crafting Digital Excellence
             </span>
           </div>
@@ -34,32 +34,23 @@ export default function Hero() {
                 <span className="block animate-expand [animation-delay:0.2s] text-black/20 dark:text-white/20">ENGINEER</span>
               </div>
             </h1>
-            <div className="absolute inset-0 -z-10 blur-3xl opacity-5 dark:opacity-10 bg-blue-500" />
+            {/* Focal Glow: RESTORED atmospheric depth behind the shattered text */}
+            <div className="absolute inset-0 -z-10 blur-3xl opacity-10 dark:opacity-25 bg-blue-500 scale-150 animate-pulse" />
           </div>
 
           <div className="max-w-4xl mb-8 md:mb-12 space-y-4 md:space-y-6">
-            {/* NAME: 6-Piece 3D Hyper-Shatter */}
-            <div className="hidden md:block">
-              <HyperShatter shardClassPrefix="n-shard" count={6} className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] text-black dark:text-white">
-                Nițescu Eduard
-              </HyperShatter>
-            </div>
-            <div className="md:hidden overflow-hidden">
-              <h2 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] animate-reveal-up [animation-delay:0.5s] text-black dark:text-white">
+            <div className="overflow-hidden">
+              <h2 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] animate-reveal-up [animation-delay:1.5s] text-black dark:text-white">
                 Nițescu Eduard
               </h2>
             </div>
             
-            {/* DESCRIPTION: 3D Slab Entrance */}
-            <div className="md:reveal-3d [animation-delay:2.4s]">
-              <p className="text-base md:text-xl text-black/50 dark:text-white/50 leading-relaxed max-w-2xl mx-auto">
-                Transforming complex challenges into <span className="text-black dark:text-white italic">clean, performant</span>, and <span className="text-black dark:text-white">human-centered</span> digital experiences.
-              </p>
-            </div>
+            <p className="text-base md:text-xl text-black/50 dark:text-white/50 leading-relaxed max-w-2xl mx-auto animate-fade-in [animation-delay:1.8s]">
+              Transforming complex challenges into <span className="text-black dark:text-white italic">clean, performant</span>, and <span className="text-black dark:text-white">human-centered</span> digital experiences.
+            </p>
           </div>
 
-          {/* BUTTONS: 3D Entrance */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 md:reveal-3d [animation-delay:2.8s]">
+          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 animate-reveal-up [animation-delay:2.2s]">
             <div className="overflow-hidden rounded-full">
               <a
                 href="#projects"

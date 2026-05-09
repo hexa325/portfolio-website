@@ -19,24 +19,18 @@ export default function ModernMesh() {
     };
 
     const handleScroll = () => {
-      // Avoid logic entirely on mobile
       if (!containerRef.current) return;
-      
       const position = window.scrollY;
       const height = document.documentElement.scrollHeight - window.innerHeight;
       const progress = height > 0 ? Math.min(position / height, 1) : 0;
-      
       containerRef.current.style.setProperty("--scroll-progress", progress.toString());
     };
 
     const mobile = checkMobile();
-    
-    // Only add scroll listener if NOT mobile
     if (!mobile) {
       window.addEventListener("scroll", handleScroll, { passive: true });
       handleScroll();
     }
-
     window.addEventListener("resize", checkMobile);
     
     return () => {
@@ -58,9 +52,12 @@ export default function ModernMesh() {
         "--is-dark": isDark ? "1" : "0"
       } as React.CSSProperties}
     >
+      {/* RESTORED & ENHANCED GLOBAL GLOWS */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/20 rounded-full ambient-glow animate-blob" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full ambient-glow animate-blob [animation-delay:2s]" />
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/25 rounded-full ambient-glow animate-blob" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 dark:bg-purple-600/25 rounded-full ambient-glow animate-blob [animation-delay:2s]" />
+        {/* New dynamic center glow for the 'Showpiece' feel */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-blue-400/5 dark:bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
       </div>
 
       <div 

@@ -15,9 +15,21 @@
   --animate-expand: expand 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* PRECISION VARIABLES FOR HIGH-CONTRAST SYNC */
+:root {
+  --inv-bg: #000000;
+  --inv-text: #ffffff;
+  --card-sync-bg: #f5f5f5;
+  --card-sync-border: rgba(0,0,0,0.1);
+}
+
 :root.dark {
   --color-background: #050505;
   --color-foreground: #ededed;
+  --inv-bg: #ffffff;
+  --inv-text: #000000;
+  --card-sync-bg: #111111;
+  --card-sync-border: rgba(255,255,255,0.1);
 }
 
 /* GPU-ACCELERATED PREMIUM ANIMATIONS */
@@ -50,12 +62,7 @@
     height: auto;
   }
 
-  /* GLOBAL THEME SYNC: Force every element to transition in absolute lockstep */
-  *, *::before, *::after {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-duration: 300ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  /* REVERTED: Removed global * transition to restore site speed */
 
   /* Disable smooth scroll and transitions on mobile to stop snapping artifacts */
   @media (max-width: 768px) {
@@ -83,11 +90,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-  }
-
-  /* Specific exclusion for immediate interactive feedback (hovers) */
-  .no-sync {
-    transition: none !important;
+    transition: background-color 0.5s ease;
   }
 
   section {
@@ -161,5 +164,18 @@
   .noise-overlay {
     @apply absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay contrast-150 brightness-125;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* SURGICAL FLICKER FIX CLASSES */
+  .sync-inv {
+    background-color: var(--inv-bg);
+    color: var(--inv-text);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  .sync-card {
+    background-color: var(--card-sync-bg);
+    border-color: var(--card-sync-border);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
   }
 }

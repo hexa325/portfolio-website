@@ -10,7 +10,7 @@ export default function Skills() {
     },
     {
       title: "Tools",
-      skills: ["Git"],
+      skills: ["Git", "GitHub Actions", "BMad Framework", "Node.js", "VS Code"],
     },
   ];
 

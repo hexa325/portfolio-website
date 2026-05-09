@@ -40,7 +40,7 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   }, [delay]);
 
   return (
-    <div ref={ref} className="opacity-0 md:translate-y-4 transition-all duration-1000 ease-out will-change-[opacity,transform]">
+    <div ref={ref} className="opacity-0 md:translate-y-4 transition-all duration-1000 ease-out md:will-change-[opacity,transform]">
       {children}
     </div>
   );

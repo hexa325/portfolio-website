@@ -62,8 +62,8 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
+                <div className="flex flex-wrap justify-center md:justify-start gap-2">
                   {project.tags.map((tag) => (
                     <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 px-3 py-1 bg-blue-50 dark:bg-blue-500/10 rounded-full">
                       {tag}

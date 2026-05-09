@@ -6,11 +6,11 @@ export default function Skills() {
     },
     {
       title: "Game Dev",
-      skills: ["GameMaker Studio 2"],
+      skills: ["AI & Pathfinding", "State Machines", "Complex Systems", "GLSL Shaders"],
     },
     {
       title: "Tools",
-      skills: ["Git", "GitHub Actions", "BMad Framework", "Node.js", "VS Code"],
+      skills: ["Git", "GitHub Actions", "GameMaker Studio 2", "BMad Framework", "Node.js"],
     },
   ];
 

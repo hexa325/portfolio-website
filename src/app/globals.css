@@ -168,9 +168,14 @@
 
   /* SURGICAL FLICKER FIX CLASSES */
   .sync-inv {
-    background-color: var(--inv-bg);
-    color: var(--inv-text);
-    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: var(--inv-bg) !important;
+    color: var(--inv-text) !important;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .sync-inv span {
+    color: inherit;
+    transition: color inherit;
   }
 
   .sync-card {

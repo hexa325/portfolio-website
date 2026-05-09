@@ -88,7 +88,7 @@ export default function ContactForm() {
         disabled={status === "sending"}
         className="group sync-inv relative w-full px-8 py-5 rounded-2xl overflow-hidden md:hover:scale-[1.02] font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/10"
       >
-        <span className="relative z-10 transition-colors duration-300 md:group-hover:text-white dark:md:group-hover:text-black">
+        <span className="relative z-10">
           {status === "sending" ? "Sending..." : "Submit Inquiry"}
         </span>
         <div className="absolute inset-0 bg-blue-600 translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-2xl" />

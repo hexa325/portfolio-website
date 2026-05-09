@@ -113,13 +113,33 @@
     color: inherit;
     transition: color 0.5s ease;
     backface-visibility: hidden;
+    /* OVERLAP FIX: Slight scale ensures shards bleed into each other during assembly */
+    transform: scale(1.02);
+    /* HANDOFF FIX: Fade shards out once base text is solid */
+    animation-fill-mode: forwards;
+    animation-name: shardFadeOut;
+    animation-duration: 0.5s;
+    animation-delay: 2.2s;
+  }
+
+  @keyframes shardFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
   }
 
   .hyper-base {
     @apply relative opacity-0;
-    animation: chromaticGlitch 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 2.5s;
+    /* HANDOFF FIX: Fade base in to cover gaps exactly at impact */
+    animation: 
+      baseFadeIn 0.4s ease forwards,
+      chromaticGlitch 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 1.8s, 2.2s;
     transition: color 0.5s ease;
+  }
+
+  @keyframes baseFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   /* SHARD SLICES (12 COMPLEX PIECES) */

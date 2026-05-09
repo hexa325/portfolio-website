@@ -10,6 +10,7 @@ export default function ScrollToTop() {
     setMounted(true);
     
     const toggleVisibility = () => {
+      // Show button after 300px scroll
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
@@ -17,16 +18,18 @@ export default function ScrollToTop() {
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const scrollToTop = () => {
+    // 1. Immediately hide the button to prevent double-clicks or lingering
     setIsVisible(false);
-    const isMobile = window.innerWidth <= 768;
+    
+    // 2. Absolute top scroll
     window.scrollTo({
       top: 0,
-      behavior: isMobile ? "auto" : "smooth",
+      behavior: "auto", // Instant jump for reliability
     });
   };
 
@@ -35,16 +38,22 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black shadow-lg hover:opacity-90 z-50 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+      className={`fixed bottom-8 right-8 w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black shadow-2xl z-[9999] transition-all duration-300 ${
+        isVisible 
+          ? "opacity-100 scale-100 translate-y-0 pointer-events-auto" 
+          : "opacity-0 scale-50 translate-y-10 pointer-events-none"
       }`}
       aria-label="Scroll to top"
+      style={{
+        // Force hide on mobile if not visible without complex transforms if they are buggy
+        display: isVisible ? 'block' : 'none'
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={2}
+        strokeWidth={2.5}
         stroke="currentColor"
         className="w-6 h-6 mx-auto"
       >

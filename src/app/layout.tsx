@@ -51,6 +51,8 @@ export const metadata: Metadata = {
   },
   other: {
     "color-scheme": "light dark",
+    "supported-color-schemes": "light dark",
+    "theme-color": "#ffffff",
   },
 };
 

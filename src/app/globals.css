@@ -15,9 +15,22 @@
   --animate-expand: expand 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+:root {
+  --btn-bg: #000000;
+  --btn-text: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.5);
+  --card-border: rgba(0, 0, 0, 0.1);
+  --form-container: rgba(255, 255, 255, 0.8);
+}
+
 :root.dark {
   --color-background: #050505;
   --color-foreground: #ededed;
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --form-container: rgba(0, 0, 0, 0.8);
 }
 
 /* GPU-ACCELERATED PREMIUM ANIMATIONS */
@@ -80,10 +93,10 @@
     transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
   }
 
-  /* FLICKER FIX: Ensure child elements inherit the body transition without competing */
+  /* FLICKER FIX: Ensure child elements and variables transition in perfect sync */
   body * {
     transition-duration: inherit;
-    transition-property: background-color, border-color, color, fill, stroke;
+    transition-property: background-color, border-color, color, fill, stroke, --btn-bg, --btn-text, --card-bg, --card-border, --form-container;
     transition-timing-function: inherit;
   }
 
@@ -155,12 +168,27 @@
 
   @keyframes meshScroll {
     0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
-    50% { transform: translate3d(-5%, 5%, 0) rotate(2deg) scale(1.1); }
+    50% { transform: translate3d(5%, 5%, 0) rotate(2deg) scale(1.1); }
     100% { transform: translate3d(5%, -5%, 0) rotate(-2deg) scale(1); }
   }
 
   .noise-overlay {
     @apply absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay contrast-150 brightness-125;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* CUSTOM UI UTILITIES FOR VARIABLE TRANSITIONS */
+  .ui-btn {
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+  }
+  
+  .ui-card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+  }
+  
+  .ui-form-container {
+    background-color: var(--form-container);
   }
 }

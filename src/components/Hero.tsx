@@ -1,37 +1,33 @@
 export default function Hero() {
-  const ShatterText = ({ children, className }: { children: string; className?: string }) => (
-    <div className={`shatter-container ${className}`}>
-      {/* Base text that becomes visible and carries the glitch after reconstruction */}
-      <span className="shatter-base block">{children}</span>
-      {/* 3D Animated Shards (8 per line for high complexity) */}
-      <span className="shatter-layer shard-1 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-2 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-3 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-4 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-5 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-6 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-7 block" aria-hidden="true">{children}</span>
-      <span className="shatter-layer shard-8 block" aria-hidden="true">{children}</span>
+  const HyperShatter = ({ children, className, shardClassPrefix, count }: { children: string; className?: string; shardClassPrefix: string; count: number }) => (
+    <div className={`hyper-container ${className}`}>
+      <span className="hyper-base block">{children}</span>
+      {Array.from({ length: count }).map((_, i) => (
+        <span key={i} className={`hyper-layer ${shardClassPrefix}-${i + 1} block`} aria-hidden="true">
+          {children}
+        </span>
+      ))}
     </div>
   );
 
   return (
-    <section id="hero" className="relative pt-32 md:pt-40 pb-24 md:pb-32 min-h-screen flex items-center">
+    <section id="hero" className="relative pt-32 md:pt-40 pb-24 md:pb-32 min-h-screen flex items-center overflow-hidden hero-3d-stage">
       <div className="section-container relative z-10 w-full">
         <div className="flex flex-col items-center text-center">
-          <div className="mb-10 md:mb-12 h-auto overflow-hidden">
-            <span className="block font-display text-[10px] md:text-xs uppercase tracking-widest md:tracking-[0.5em] text-black/40 dark:text-white/30 animate-reveal-up">
+          {/* TAGLINE: 3D Entrance */}
+          <div className="mb-10 md:mb-12 h-auto overflow-hidden md:reveal-3d [animation-delay:0.2s]">
+            <span className="block font-display text-[10px] md:text-xs uppercase tracking-widest md:tracking-[0.5em] text-black/40 dark:text-white/30">
               Crafting Digital Excellence
             </span>
           </div>
 
           <div className="relative mb-6 md:mb-10 isolate w-full">
             <h1 className="text-[12vw] md:text-[10vw] font-bold leading-[0.8] tracking-tighter select-none">
-              {/* Desktop: 3D Hyper-Shatter Effect | Mobile: High-performance standard entry */}
+              {/* Desktop: 12-Piece 3D Hyper-Shatter | Mobile: Smooth Reveal */}
               <div className="hidden md:block">
-                <ShatterText>SOFTWARE</ShatterText>
+                <HyperShatter shardClassPrefix="h-shard" count={12} className="text-black dark:text-white">SOFTWARE</HyperShatter>
                 <br />
-                <ShatterText className="opacity-20 dark:opacity-20">ENGINEER</ShatterText>
+                <HyperShatter shardClassPrefix="h-shard" count={12} className="text-black/20 dark:text-white/20">ENGINEER</HyperShatter>
               </div>
               <div className="md:hidden">
                 <span className="block animate-expand [animation-delay:0.1s] text-black dark:text-white">SOFTWARE</span>
@@ -42,22 +38,32 @@ export default function Hero() {
           </div>
 
           <div className="max-w-4xl mb-8 md:mb-12 space-y-4 md:space-y-6">
-            <div className="overflow-hidden">
-              <h2 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] animate-reveal-up [animation-delay:2s] text-black dark:text-white">
+            {/* NAME: 6-Piece 3D Hyper-Shatter */}
+            <div className="hidden md:block">
+              <HyperShatter shardClassPrefix="n-shard" count={6} className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] text-black dark:text-white">
+                Nițescu Eduard
+              </HyperShatter>
+            </div>
+            <div className="md:hidden overflow-hidden">
+              <h2 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] animate-reveal-up [animation-delay:0.5s] text-black dark:text-white">
                 Nițescu Eduard
               </h2>
             </div>
             
-            <p className="text-base md:text-xl text-black/50 dark:text-white/50 leading-relaxed max-w-2xl mx-auto animate-fade-in [animation-delay:2.3s]">
-              Transforming complex challenges into <span className="text-black dark:text-white italic">clean, performant</span>, and <span className="text-black dark:text-white">human-centered</span> digital experiences.
-            </p>
+            {/* DESCRIPTION: 3D Slab Entrance */}
+            <div className="md:reveal-3d [animation-delay:2.4s]">
+              <p className="text-base md:text-xl text-black/50 dark:text-white/50 leading-relaxed max-w-2xl mx-auto">
+                Transforming complex challenges into <span className="text-black dark:text-white italic">clean, performant</span>, and <span className="text-black dark:text-white">human-centered</span> digital experiences.
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
+          {/* BUTTONS: 3D Entrance */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 md:reveal-3d [animation-delay:2.8s]">
             <div className="overflow-hidden rounded-full">
               <a
                 href="#projects"
-                className="group sync-inv relative block px-12 py-6 rounded-full overflow-hidden font-bold text-xs uppercase tracking-widest md:hover:scale-105 active:scale-95 animate-reveal-up [animation-delay:2.6s]"
+                className="group sync-inv relative block px-12 py-6 rounded-full overflow-hidden font-bold text-xs uppercase tracking-widest transition-all duration-300 md:hover:scale-105 active:scale-95"
               >
                 <span className="relative z-10">Explore Works</span>
                 <div className="absolute inset-0 bg-blue-600 translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
@@ -67,7 +73,7 @@ export default function Hero() {
             <div className="overflow-hidden rounded-full">
               <a
                 href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/cv.pdf" : "/cv.pdf"}
-                className="block px-12 py-6 border border-black/10 dark:border-white/10 rounded-full md:hover:bg-black md:hover:text-white transition-all duration-500 font-bold text-xs uppercase tracking-widest text-black dark:text-white active:scale-95 animate-reveal-up [animation-delay:2.7s]"
+                className="block px-12 py-6 border border-black/10 dark:border-white/10 rounded-full md:hover:bg-black md:hover:text-white transition-all duration-500 font-bold text-xs uppercase tracking-widest text-black dark:text-white active:scale-95"
               >
                 Get Resume
               </a>

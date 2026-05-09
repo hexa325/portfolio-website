@@ -1,16 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const isScrollingToTop = useRef(false);
 
   useEffect(() => {
     setMounted(true);
     
     const toggleVisibility = () => {
-      // Show button after 300px scroll
+      // If we are currently in the middle of a 'scroll to top' action,
+      // ignore scroll events to prevent the button from flickering back on.
+      if (isScrollingToTop.current) return;
+
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
@@ -23,14 +27,27 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    // 1. Immediately hide the button to prevent double-clicks or lingering
+    // 1. Lock visibility updates
+    isScrollingToTop.current = true;
     setIsVisible(false);
     
-    // 2. Absolute top scroll
+    const isMobile = window.innerWidth <= 768;
+
+    // 2. Perform scroll
     window.scrollTo({
       top: 0,
-      behavior: "auto", // Instant jump for reliability
+      behavior: isMobile ? "auto" : "smooth",
     });
+
+    // 3. Unlock after a delay (enough for smooth scroll to finish on desktop)
+    // On mobile (auto), this happens almost instantly.
+    setTimeout(() => {
+      isScrollingToTop.current = false;
+      // Final check to ensure it's hidden if we're at the top
+      if (window.scrollY <= 300) {
+        setIsVisible(false);
+      }
+    }, isMobile ? 50 : 800);
   };
 
   if (!mounted) return null;
@@ -45,8 +62,8 @@ export default function ScrollToTop() {
       }`}
       aria-label="Scroll to top"
       style={{
-        // Force hide on mobile if not visible without complex transforms if they are buggy
-        display: isVisible ? 'block' : 'none'
+        // Hard-hide when not visible to prevent ghost artifacts or clicks
+        visibility: isVisible ? 'visible' : 'hidden'
       }}
     >
       <svg

@@ -15,17 +15,6 @@ export default function About() {
             I don&apos;t just write code — I think
             about why we&apos;re building it and who it serves. My approach combines clean code with clear communication.
           </p>
-          
-          {/* Professional Highlight Card */}
-          <div className="bg-black/[0.02] dark:bg-white/[0.02] backdrop-blur-sm rounded-3xl p-8 border border-black/5 dark:border-white/5 transition-colors duration-500 text-left">
-            <div className="flex flex-col mb-4">
-              <h3 className="text-xl font-bold text-black dark:text-white">Programming Instructor</h3>
-              <span className="text-blue-500 font-bold text-sm tracking-widest uppercase">Logiscool</span>
-            </div>
-            <p className="text-sm text-black/60 dark:text-white/60 leading-relaxed">
-              Delivered structured curriculum covering Python fundamentals, visual programming (Scoolcode), and modern development tools to students aged 8 to 18, adapting complex concepts for diverse learning levels.
-            </p>
-          </div>
         </div>
 
         <div className="relative group">

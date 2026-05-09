@@ -22,6 +22,7 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
+    setIsVisible(false);
     window.scrollTo({
       top: 0,
       behavior: "smooth",

@@ -62,54 +62,46 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 3.5rem;
-    height: auto;
-  }
-
-  /* Disable smooth scroll on mobile to stop snapping artifacts */
-  @media (max-width: 768px) {
-    html {
-      scroll-behavior: auto !important;
-    }
-    
-    * {
-      scroll-snap-type: none !important;
-      scroll-behavior: auto !important;
-    }
+    /* CLEAN SLATE: Remove dynamic scroll padding */
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   body {
     @apply antialiased font-sans bg-white dark:bg-[#050505] text-black dark:text-[#ededed];
+    /* CLEAN SLATE: Hard-lock body to 100% to prevent dynamic viewport shifts */
     width: 100%;
-    min-height: 100dvh;
-    height: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
+    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  /* Stabilize body for mobile scroll */
-  @media (max-width: 768px) {
-    body {
-      -webkit-overflow-scrolling: touch;
-      overscroll-behavior-y: auto;
-      position: relative;
-    }
+  /* CLEAN SLATE: Use traditional section padding for navigation offset */
+  section {
+    position: relative;
+    /* Default padding to handle navbar height */
+    padding-top: 5rem;
+    margin-top: -5rem;
   }
 
-  section {
-    scroll-margin-top: 3.5rem;
+  /* Specific reset for Hero which is at the top */
+  #hero, section:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
 
-  /* Disable will-change on mobile as it often causes the "snap" / rendering jumps */
-  @media (min-width: 769px) {
-    .animate-reveal-up, .animate-expand, .animate-fade-in {
-      will-change: transform, opacity;
-    }
+  /* CLEAN SLATE: Disable will-change which often interferes with momentum scroll */
+  * {
+    will-change: auto !important;
   }
 }
 

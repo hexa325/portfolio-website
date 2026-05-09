@@ -18,14 +18,15 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
+          // CLEAN SLATE: Use requestAnimationFrame for sync frame updates
+          requestAnimationFrame(() => {
             if (ref.current) {
               ref.current.classList.add("opacity-100");
               if (!isMobile) {
                 ref.current.classList.remove("translate-y-4");
               }
             }
-          }, delay);
+          });
           observer.unobserve(entry.target);
         }
       },
@@ -40,7 +41,7 @@ export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   }, [delay]);
 
   return (
-    <div ref={ref} className="opacity-0 md:translate-y-4 transition-all duration-1000 ease-out md:will-change-[opacity,transform]">
+    <div ref={ref} className="opacity-0 md:translate-y-4 transition-all duration-1000 ease-out">
       {children}
     </div>
   );

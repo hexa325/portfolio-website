@@ -7,6 +7,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import KineticReveal from "@/components/KineticReveal";
 
 export default function Home() {
   return (
@@ -20,11 +21,27 @@ export default function Home() {
       
       <Navbar />
       <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
+      
+      <KineticReveal>
+        <About />
+      </KineticReveal>
+      
+      <KineticReveal>
+        <Experience />
+      </KineticReveal>
+      
+      <KineticReveal>
+        <Skills />
+      </KineticReveal>
+      
+      <KineticReveal>
+        <Projects />
+      </KineticReveal>
+      
+      <KineticReveal>
+        <Contact />
+      </KineticReveal>
+      
       <Footer />
       <ScrollToTop />
     </main>

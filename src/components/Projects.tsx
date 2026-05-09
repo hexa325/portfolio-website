@@ -33,11 +33,11 @@ export default function Projects() {
       <div className="flex flex-col items-center mb-16 md:mb-24">
         <div className="hidden md:block">
           <HyperShatter shardClassPrefix="h-shard" count={12} className="text-4xl md:text-7xl font-bold tracking-tighter text-center">
-            Featured Projects
+            Projects
           </HyperShatter>
         </div>
         <h2 className="md:hidden text-4xl font-bold tracking-tighter text-center">
-          Featured Projects
+          Projects
         </h2>
         <div className="w-12 h-1.5 bg-blue-600 rounded-full mt-6" />
       </div>

@@ -36,7 +36,7 @@ export default function ContactForm() {
     <form action="https://formspree.io/f/mqegdndp" method="POST" onSubmit={handleSubmit} className="space-y-6">
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
-        <label htmlFor="name" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">
+        <label htmlFor="name" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/60 mb-3 ml-1">
           Full Name
         </label>
         <input
@@ -46,13 +46,13 @@ export default function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/5 border border-black/5 dark:border-white/10 focus:outline-none focus:border-black/20 dark:focus:border-white/30 transition-colors"
           placeholder="Your Name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">
+        <label htmlFor="email" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/60 mb-3 ml-1">
           Email Address
         </label>
         <input
@@ -62,13 +62,13 @@ export default function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/5 border border-black/5 dark:border-white/10 focus:outline-none focus:border-black/20 dark:focus:border-white/30 transition-colors"
           placeholder="your@email.com"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">
+        <label htmlFor="message" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/60 mb-3 ml-1">
           Your Message
         </label>
         <textarea
@@ -78,7 +78,7 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           required
           rows={5}
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/[0.02] border border-black/5 dark:border-white/5 focus:outline-none focus:border-black/20 dark:focus:border-white/20 transition-colors resize-none"
+          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/5 border border-black/5 dark:border-white/10 focus:outline-none focus:border-black/20 dark:focus:border-white/30 transition-colors resize-none"
           placeholder="How can I help you?"
         />
       </div>

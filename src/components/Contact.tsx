@@ -55,7 +55,7 @@ export default function Contact() {
           </div>
         </div>
         
-        <div className="bg-white dark:bg-[#0a0a0a] md:bg-white/80 md:dark:bg-black/60 md:backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-black/10 dark:border-white/5 transition-colors duration-500">
+        <div className="bg-white dark:bg-[#0a0a0a] md:bg-white/80 md:dark:bg-black/80 md:backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 border border-black/10 dark:border-white/10 transition-colors duration-500">
           <ContactForm />
         </div>
       </div>

@@ -33,7 +33,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form action="https://formspree.io/f/mqegdndp" method="POST" onSubmit={handleSubmit} className="space-y-6">
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
         <label htmlFor="name" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/40 mb-3 ml-1">

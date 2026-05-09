@@ -47,7 +47,7 @@ export default function Hero() {
             
             <div className="overflow-hidden rounded-full">
               <a
-                href="#download-cv"
+                href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/cv.pdf" : "/cv.pdf"}
                 className="block px-12 py-6 border border-black/10 dark:border-white/10 rounded-full hover:bg-black hover:text-white transition-all duration-500 font-bold text-xs uppercase tracking-widest text-black dark:text-white active:scale-95 animate-reveal-up [animation-delay:1.3s]"
               >
                 Get Resume

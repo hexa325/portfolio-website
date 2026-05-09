@@ -46,7 +46,7 @@ export default function Contact() {
           <div className="rounded-full">
             <a
               id="download-cv"
-              href="/cv.pdf"
+              href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/cv.pdf" : "/cv.pdf"}
               className="group relative inline-flex items-center gap-3 px-10 py-5 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-colors duration-300 hover:scale-105 font-bold text-sm uppercase tracking-wider shadow-xl shadow-black/5 dark:shadow-white/10"
             >
               <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Download CV</span>

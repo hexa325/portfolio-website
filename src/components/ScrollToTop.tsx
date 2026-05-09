@@ -10,43 +10,36 @@ export default function ScrollToTop() {
   useEffect(() => {
     setMounted(true);
     
-    const toggleVisibility = () => {
-      // If we are currently in the middle of a 'scroll to top' action,
-      // ignore scroll events to prevent the button from flickering back on.
-      if (isScrollingToTop.current) return;
+    // PERFORMANCE FIX: Use IntersectionObserver instead of scroll listener
+    // This stops JS from running on every single pixel scrolled.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (isScrollingToTop.current) return;
+        setIsVisible(!entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
 
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+    // Watch the top of the page (hero section target)
+    const target = document.getElementById("hero");
+    if (target) observer.observe(target);
 
-    window.addEventListener("scroll", toggleVisibility, { passive: true });
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    return () => observer.disconnect();
   }, []);
 
   const scrollToTop = () => {
-    // 1. Lock visibility updates
     isScrollingToTop.current = true;
     setIsVisible(false);
     
     const isMobile = window.innerWidth <= 768;
 
-    // 2. Perform scroll
     window.scrollTo({
       top: 0,
       behavior: isMobile ? "auto" : "smooth",
     });
 
-    // 3. Unlock after a delay (enough for smooth scroll to finish on desktop)
-    // On mobile (auto), this happens almost instantly.
     setTimeout(() => {
       isScrollingToTop.current = false;
-      // Final check to ensure it's hidden if we're at the top
-      if (window.scrollY <= 300) {
-        setIsVisible(false);
-      }
     }, isMobile ? 50 : 800);
   };
 
@@ -62,7 +55,6 @@ export default function ScrollToTop() {
       }`}
       aria-label="Scroll to top"
       style={{
-        // Hard-hide when not visible to prevent ghost artifacts or clicks
         visibility: isVisible ? 'visible' : 'hidden'
       }}
     >

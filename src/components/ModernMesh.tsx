@@ -5,27 +5,47 @@ import { useTheme } from "next-themes";
 
 export default function ModernMesh() {
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
     
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      return mobile;
+    };
+
     const handleScroll = () => {
-      if (window.innerWidth <= 768) return;
+      // Avoid logic entirely on mobile
       if (!containerRef.current) return;
+      
       const position = window.scrollY;
       const height = document.documentElement.scrollHeight - window.innerHeight;
       const progress = height > 0 ? Math.min(position / height, 1) : 0;
+      
       containerRef.current.style.setProperty("--scroll-progress", progress.toString());
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const mobile = checkMobile();
+    
+    // Only add scroll listener if NOT mobile
+    if (!mobile) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+    }
+
+    window.addEventListener("resize", checkMobile);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || isMobile) return null;
 
   const isDark = resolvedTheme === "dark";
 
@@ -38,13 +58,11 @@ export default function ModernMesh() {
         "--is-dark": isDark ? "1" : "0"
       } as React.CSSProperties}
     >
-      {/* LIBERATED AMBIENT GLOWS: Moved from Hero to global fixed container */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-blue-500/10 dark:bg-blue-600/20 rounded-full ambient-glow animate-blob" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 dark:bg-purple-600/20 rounded-full ambient-glow animate-blob [animation-delay:2s]" />
       </div>
 
-      {/* LAYER 1: DAWN (Vibrant) - Desktop Only */}
       <div 
         className="mesh-gradient absolute inset-0 hidden md:block" 
         style={{ 
@@ -58,7 +76,6 @@ export default function ModernMesh() {
         }} 
       />
 
-      {/* LAYER 2: TWILIGHT - Desktop Only */}
       <div 
         className="mesh-gradient absolute inset-0 hidden md:block" 
         style={{ 
@@ -70,7 +87,6 @@ export default function ModernMesh() {
         }} 
       />
 
-      {/* LAYER 3: THE VOID - Desktop Only */}
       <div 
         className="mesh-gradient absolute inset-0 hidden md:block" 
         style={{ 

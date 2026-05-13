@@ -16,13 +16,17 @@ export default function KineticReveal({
 
   useEffect(() => {
     setMounted(true);
-    // DESKTOP-ONLY GUARD: Disable all JS logic for mobile
-    if (typeof window === "undefined" || window.innerWidth <= 768 || !ref.current) return;
+    if (typeof window === "undefined" || !ref.current) return;
+
+    // Mobile: Add active immediately and exit
+    if (window.innerWidth <= 768) {
+      ref.current.classList.add("active");
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Use requestAnimationFrame to ensure sync with the browser's paint cycle
           requestAnimationFrame(() => {
             if (ref.current) {
               ref.current.classList.add("active");
@@ -33,7 +37,7 @@ export default function KineticReveal({
       },
       { 
         threshold: 0.1,
-        rootMargin: "0px 0px -10% 0px" // Start reveal before it hits the center
+        rootMargin: "0px 0px -10% 0px"
       }
     );
 

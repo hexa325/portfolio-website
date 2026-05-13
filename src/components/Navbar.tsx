@@ -9,48 +9,47 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed top-0 w-full bg-white/50 dark:bg-[#050505]/50 backdrop-blur-xl z-50 border-b border-black/5 dark:border-white/5"
+      className="fixed top-0 w-full bg-[#f4f4f0] dark:bg-[#111111] z-50 border-b-4 border-black dark:border-white"
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="text-2xl font-display font-bold tracking-tighter hover:opacity-70 transition-opacity" aria-label="Home">
+          <a href="#" className="text-3xl font-bold tracking-tighter uppercase" aria-label="Home">
             hexa.
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-8">
             <a
               href="#about"
-              className="text-xs uppercase tracking-widest font-bold hover:text-black/50 dark:hover:text-white/50 transition-colors"
+              className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               About
             </a>
             <a
               href="#experience"
-              className="text-xs uppercase tracking-widest font-bold hover:text-black/50 dark:hover:text-white/50 transition-colors"
+              className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               Experience
             </a>
             <a
               href="#skills"
-              className="text-xs uppercase tracking-widest font-bold hover:text-black/50 dark:hover:text-white/50 transition-colors"
+              className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               Skills
             </a>
             <a
               href="#projects"
-              className="text-xs uppercase tracking-widest font-bold hover:text-black/50 dark:hover:text-white/50 transition-colors"
+              className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               Projects
             </a>
             <a
               href="#contact"
-              className="group relative text-xs uppercase tracking-widest font-bold px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-all duration-300 hover:scale-105"
+              className="bg-black text-white dark:bg-white dark:text-black px-6 py-2 font-bold uppercase tracking-widest border-2 border-black dark:border-white hover:translate-x-1 hover:translate-y-1 transition-transform"
             >
-              <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Contact</span>
-              <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
+              Contact
             </a>
-            <div className="h-4 w-[1px] bg-black/10 dark:bg-white/10 mx-2" />
+            <div className="h-6 w-[2px] bg-black dark:bg-white mx-2" />
             <ThemeToggle />
           </div>
 
@@ -59,7 +58,7 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+              className="w-12 h-12 flex items-center justify-center border-2 border-black dark:border-white bg-white dark:bg-black"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
@@ -68,13 +67,13 @@ export default function Navbar() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={2}
+                  strokeWidth={3}
                   stroke="currentColor"
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                 >
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
                     d="M6 18 18 6M6 6l12 12"
                   />
                 </svg>
@@ -83,13 +82,13 @@ export default function Navbar() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={2}
+                  strokeWidth={3}
                   stroke="currentColor"
-                  className="w-5 h-5"
+                  className="w-6 h-6"
                 >
                   <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    strokeLinecap="square"
+                    strokeLinejoin="miter"
                     d="M3.75 9h16.5m-16.5 6.75h16.5"
                   />
                 </svg>
@@ -98,45 +97,44 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-8 animate-fade-in">
-            <div className="flex flex-col gap-6 text-center">
+          <div className="md:hidden py-8 border-t-4 border-black dark:border-white animate-fade-in bg-white dark:bg-black">
+            <div className="flex flex-col gap-6 px-4">
               <a
                 href="#about"
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-display font-bold"
+                className="text-2xl font-bold uppercase tracking-tight"
               >
                 About
               </a>
               <a
                 href="#experience"
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-display font-bold"
+                className="text-2xl font-bold uppercase tracking-tight"
               >
                 Experience
               </a>
               <a
                 href="#skills"
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-display font-bold"
+                className="text-2xl font-bold uppercase tracking-tight"
               >
                 Skills
               </a>
               <a
                 href="#projects"
                 onClick={() => setIsOpen(false)}
-                className="text-lg font-display font-bold"
+                className="text-2xl font-bold uppercase tracking-tight"
               >
                 Projects
               </a>
               <a
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="group relative text-lg font-display font-bold px-6 py-4 bg-black text-white dark:bg-white dark:text-black rounded-full overflow-hidden transition-all duration-300"
+                className="bg-black text-white dark:bg-white dark:text-black px-6 py-4 font-bold uppercase tracking-widest border-4 border-black dark:border-white text-center"
               >
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black">Contact</span>
-                <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
+                Contact
               </a>
             </div>
           </div>

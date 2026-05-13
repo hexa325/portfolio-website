@@ -33,11 +33,11 @@ export default function ContactForm() {
   };
 
   return (
-    <form action="https://formspree.io/f/mqegdndp" method="POST" onSubmit={handleSubmit} className="space-y-6">
+    <form action="https://formspree.io/f/mqegdndp" method="POST" onSubmit={handleSubmit} className="space-y-8">
       <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
       <div>
-        <label htmlFor="name" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/60 mb-3 ml-1">
-          Full Name
+        <label htmlFor="name" className="block text-xs uppercase tracking-widest font-bold text-black dark:text-white mb-3">
+          [ Full Name ]
         </label>
         <input
           type="text"
@@ -46,14 +46,14 @@ export default function ContactForm() {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/5 border border-black/5 dark:border-white/10 focus:outline-none focus:border-black/20 dark:focus:border-white/30 transition-colors duration-300"
+          className="w-full px-6 py-4 bg-transparent border-4 border-black dark:border-white focus:bg-blue-600/10 outline-none transition-colors font-mono font-bold"
           placeholder="Your Name"
         />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/60 mb-3 ml-1">
-          Email Address
+        <label htmlFor="email" className="block text-xs uppercase tracking-widest font-bold text-black dark:text-white mb-3">
+          [ Email Address ]
         </label>
         <input
           type="email"
@@ -62,14 +62,14 @@ export default function ContactForm() {
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/5 border border-black/5 dark:border-white/10 focus:outline-none focus:border-black/20 dark:focus:border-white/30 transition-colors duration-300"
+          className="w-full px-6 py-4 bg-transparent border-4 border-black dark:border-white focus:bg-blue-600/10 outline-none transition-colors font-mono font-bold"
           placeholder="your@email.com"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-[10px] uppercase tracking-widest font-bold text-black/40 dark:text-white/60 mb-3 ml-1">
-          Your Message
+        <label htmlFor="message" className="block text-xs uppercase tracking-widest font-bold text-black dark:text-white mb-3">
+          [ Your Message ]
         </label>
         <textarea
           id="message"
@@ -78,7 +78,7 @@ export default function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           required
           rows={5}
-          className="w-full px-6 py-4 rounded-2xl bg-black/[0.03] dark:bg-white/5 border border-black/5 dark:border-white/10 focus:outline-none focus:border-black/20 dark:focus:border-white/30 transition-colors duration-300 resize-none"
+          className="w-full px-6 py-4 bg-transparent border-4 border-black dark:border-white focus:bg-blue-600/10 outline-none transition-colors font-mono font-bold resize-none"
           placeholder="How can I help you?"
         />
       </div>
@@ -86,22 +86,19 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group sync-inv relative w-full px-8 py-5 rounded-2xl overflow-hidden md:hover:scale-[1.02] font-bold text-sm uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-black/5 dark:shadow-white/10"
+        className="sync-inv w-full"
       >
-        <span className="relative z-10">
-          {status === "sending" ? "Sending..." : "Submit Inquiry"}
-        </span>
-        <div className="absolute inset-0 bg-blue-600 translate-y-full md:group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-2xl" />
+        {status === "sending" ? "Sending..." : "Submit Inquiry"}
       </button>
 
       {status === "success" && (
-        <p className="text-sm font-bold text-green-500 text-center animate-fade-in">
-          Message sent successfully! I&apos;ll be in touch soon.
+        <p className="text-sm font-bold text-green-600 dark:text-green-400 text-center uppercase tracking-tighter">
+          &gt;&gt; Message sent successfully! &lt;&lt;
         </p>
       )}
       {status === "error" && (
-        <p className="text-sm font-bold text-red-500 text-center animate-fade-in">
-          Something went wrong. Please try again.
+        <p className="text-sm font-bold text-red-600 dark:text-red-400 text-center uppercase tracking-tighter">
+          !! Something went wrong. Retry !!
         </p>
       )}
     </form>

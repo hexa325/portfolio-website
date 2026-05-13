@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HyperShatter from "./HyperShatter";
+import LiquidFlux from "./LiquidFlux";
 import KineticReveal from "./KineticReveal";
 
 const isGitHubPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true";
@@ -32,29 +32,29 @@ export default function Projects() {
     <section id="projects" className="section-padding section-container relative">
       <div className="flex flex-col items-center mb-16 md:mb-24">
         <div className="hidden md:block">
-          <HyperShatter shardClassPrefix="h-shard" count={12} className="text-4xl md:text-7xl font-bold tracking-tighter text-center">
+          <LiquidFlux className="text-5xl md:text-8xl font-bold tracking-tighter text-center uppercase">
             Projects
-          </HyperShatter>
+          </LiquidFlux>
         </div>
-        <h2 className="md:hidden text-4xl font-bold tracking-tighter text-center">
+        <h2 className="md:hidden text-5xl font-bold tracking-tighter text-center uppercase">
           Projects
         </h2>
-        <div className="w-12 h-1.5 bg-blue-600 rounded-full mt-6" />
+        <div className="w-24 h-4 bg-black dark:bg-white mt-6" />
       </div>
 
-      <div className="grid gap-16 md:gap-32">
+      <div className="grid gap-24 md:gap-40">
         {projects.map((project, index) => (
           <KineticReveal key={index} stagger={index + 1}>
-            <div className="group relative flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div className="group relative flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-24 items-center">
               {/* MOBILE ORDER 1: Title & Description */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4 md:gap-6 order-1">
-                <h3 className="text-3xl md:text-5xl font-bold tracking-tight order-1">{project.title}</h3>
-                <p className="text-lg text-black/60 dark:text-white/60 leading-relaxed max-w-2xl order-2">
+              <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 order-1">
+                <h3 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase order-1">{project.title}</h3>
+                <p className="text-xl font-mono text-black/70 dark:text-white/70 leading-tight max-w-2xl order-2">
                   {project.description}
                 </p>
                 
                 {/* MOBILE ORDER 3: Photo (Placed after description in the flex flow) */}
-                <div className="relative w-full aspect-video overflow-hidden rounded-[2rem] border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 order-3 md:hidden">
+                <div className="relative w-full aspect-video overflow-hidden border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(244,244,240,1)] order-3 md:hidden">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -63,16 +63,16 @@ export default function Projects() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-black/10 dark:text-white/10 font-display font-bold text-4xl uppercase tracking-tighter">
+                    <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 text-black/20 dark:text-white/20 font-bold text-4xl uppercase tracking-tighter">
                       {project.title}
                     </div>
                   )}
                 </div>
 
                 {/* MOBILE ORDER 4: Tags */}
-                <div className="flex flex-wrap justify-center md:justify-start gap-2 order-4">
+                <div className="flex flex-wrap justify-center md:justify-start gap-3 order-4">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 px-3 py-1 bg-blue-50 dark:bg-blue-500/10 rounded-full">
+                    <span key={tag} className="text-xs font-bold uppercase tracking-widest text-white px-4 py-1 bg-black dark:bg-white dark:text-black border-2 border-black dark:border-white">
                       {tag}
                     </span>
                   ))}
@@ -80,20 +80,20 @@ export default function Projects() {
               </div>
 
               {/* DESKTOP PHOTO (Hidden on mobile) */}
-              <div className="hidden md:block relative w-full aspect-video overflow-hidden rounded-[2rem] border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 order-2">
+              <div className="hidden md:block relative w-full aspect-video overflow-hidden border-8 border-black dark:border-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] dark:shadow-[16px_16px_0px_0px_rgba(244,244,240,1)] order-2 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform">
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover"
                   />
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center text-black/10 dark:text-white/10 font-display font-bold text-4xl uppercase tracking-tighter">
+                  <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 text-black/20 dark:text-white/20 font-bold text-4xl uppercase tracking-tighter">
                     {project.title}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </KineticReveal>

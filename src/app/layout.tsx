@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ModernMesh from "@/components/ModernMesh";
 import ScrollReset from "@/components/ScrollReset";
 import "./globals.css";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-space-grotesk",
 });
 
-const syne = Syne({
+const plexMono = IBM_Plex_Mono({
+  weight: ["400", "600", "700"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-syne",
+  variable: "--font-plex-mono",
 });
 
 export const metadata: Metadata = {
@@ -60,9 +61,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${syne.variable}`}
+      className={`${spaceGrotesk.variable} ${plexMono.variable}`}
     >
-      <body className="bg-white text-black dark:bg-[#050505] dark:text-[#ededed] font-sans">
+      <body className="bg-[#f4f4f0] text-[#111] dark:bg-[#111111] dark:text-[#f4f4f0] font-mono selection:bg-blue-600 selection:text-white">
         <ThemeProvider>
           <ScrollReset />
           <ModernMesh />

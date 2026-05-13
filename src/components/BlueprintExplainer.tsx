@@ -45,12 +45,17 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
 
         {/* BLUEPRINT OVERLAY (Visible on Hover) */}
         <div className="absolute inset-0 blueprint-grid opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        
+        {/* SCANLINE EFFECT */}
+        <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-20 transition-opacity overflow-hidden">
+          <div className="w-full h-[2px] bg-blue-400 dark:bg-blue-600 animate-scanline shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+        </div>
 
         {/* HOTSPOTS */}
         {hotspots.map((spot, i) => (
           <button
             key={i}
-            className="absolute w-8 h-8 -ml-4 -mt-4 flex items-center justify-center z-20 group/spot"
+            className="absolute w-8 h-8 -ml-4 -mt-4 flex items-center justify-center z-20 group/spot mechanical-click"
             style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
             onMouseEnter={() => setActiveSpot(spot)}
             onMouseLeave={() => setActiveSpot(null)}

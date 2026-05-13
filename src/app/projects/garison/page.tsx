@@ -45,8 +45,8 @@ export default function GarisonShowcase() {
         <div className="mb-16 border-b-8 border-black dark:border-white pb-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
-              <div className="marker-box inline-block">PROJECT_SHOWCASE</div>
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter uppercase leading-[0.8]">
+              <div className="marker-box inline-block glitch-hover cursor-help">PROJECT_SHOWCASE</div>
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter uppercase leading-[0.8] glitch-hover">
                 Garison
               </h1>
             </div>
@@ -55,7 +55,7 @@ export default function GarisonShowcase() {
                 href="https://github.com/hexa325/garison" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="sync-inv"
+                className="sync-inv mechanical-click"
               >
                 View Source
               </a>
@@ -71,7 +71,7 @@ export default function GarisonShowcase() {
             alt="Garison Gameplay Schematic"
             hotspots={heroHotspots}
           />
-          <p className="mt-4 text-xs font-mono opacity-40 uppercase tracking-widest text-center">
+          <p className="mt-4 text-xs font-mono opacity-40 uppercase tracking-widest text-center animate-pulse">
             [ INTERACTIVE: HOVER OVER NODES TO VIEW SYSTEM SCHEMATICS ]
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function GarisonShowcase() {
         <div className="grid lg:grid-cols-3 gap-12 mb-32">
           <div className="lg:col-span-2 space-y-12">
             <section>
-              <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4">
+              <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4 glitch-hover">
                 <span className="w-8 h-8 bg-blue-600 flex items-center justify-center text-white text-sm">01</span>
                 The Vision
               </h2>
@@ -90,7 +90,7 @@ export default function GarisonShowcase() {
             </section>
 
             <section>
-              <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4">
+              <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4 glitch-hover">
                 <span className="w-8 h-8 bg-blue-600 flex items-center justify-center text-white text-sm">02</span>
                 Technical Challenges
               </h2>
@@ -113,7 +113,7 @@ export default function GarisonShowcase() {
 
           <aside className="space-y-8">
             <div className="p-8 border-4 border-black dark:border-white bg-white dark:bg-black">
-              <h3 className="font-bold uppercase mb-4 text-xs tracking-widest text-blue-600">Schematic_Info</h3>
+              <h3 className="font-bold uppercase mb-4 text-xs tracking-widest text-blue-600 glitch-hover">Schematic_Info</h3>
               <ul className="space-y-4 font-mono text-sm">
                 <li className="flex justify-between border-b border-black/10 dark:border-white/10 pb-2">
                   <span className="opacity-50 text-xs">ENGINE</span>
@@ -131,7 +131,7 @@ export default function GarisonShowcase() {
             </div>
             
             <div className="p-8 border-4 border-dashed border-black/20 dark:border-white/20">
-              <h3 className="font-bold uppercase mb-4 text-xs tracking-widest opacity-50">Tags</h3>
+              <h3 className="font-bold uppercase mb-4 text-xs tracking-widest opacity-50 glitch-hover">Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {["GML", "AI Logic", "Architecture", "GLSL Shaders", "Performance"].map(tag => (
                   <span key={tag} className="px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase">
@@ -146,18 +146,19 @@ export default function GarisonShowcase() {
         {/* GALLERY SECTION */}
         <div className="space-y-16">
           <div className="text-center">
-            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter">Visual Identity</h2>
+            <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tighter glitch-hover">Visual Identity</h2>
             <div className="h-2 w-24 bg-blue-600 mx-auto mt-4" />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {screenshots.map((ss, i) => (
               <div key={i} className="space-y-4 group">
-                <div className="relative aspect-square border-4 border-black dark:border-white overflow-hidden bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
+                <div className="relative aspect-square border-4 border-black dark:border-white overflow-hidden bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center group-hover:border-blue-600 transition-colors">
+                   <div className="absolute inset-0 blueprint-grid opacity-0 group-hover:opacity-20 transition-opacity" />
                    <p className="text-sm font-mono opacity-20 uppercase">Screenshot {i+1} Placeholder</p>
                 </div>
                 <div>
-                   <h4 className="font-bold uppercase text-lg">{ss.alt}</h4>
+                   <h4 className="font-bold uppercase text-lg group-hover:text-blue-600 transition-colors">{ss.alt}</h4>
                    <p className="text-sm font-mono opacity-60">{ss.caption}</p>
                 </div>
               </div>

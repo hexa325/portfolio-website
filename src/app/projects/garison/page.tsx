@@ -107,7 +107,7 @@ export default function GarisonShowcase() {
                 The Vision
               </h2>
               <p className="text-xl font-mono text-black/70 dark:text-white/70 leading-relaxed">
-                Garison was born from a desire to push the limits of GameMaker Studio 2. The goal was to create a top-down action RPG that didn't just look good, but felt mechanically deep. I focused on building reusable systems: a custom pathfinding engine, a flexible dialogue system, and a shader-based lighting engine.
+                Garison was born from a desire to push the limits of GameMaker Studio 2. The goal was to create a top-down action RPG that didn't just look good, but felt mechanically deep. I focused on building reusable systems: a JSON-buffered save/load system, a flexible tag-based dialogue engine, and a shader-driven weather and lighting cycle.
               </p>
             </section>
 

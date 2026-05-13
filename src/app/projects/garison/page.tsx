@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BlueprintExplainer from "@/components/BlueprintExplainer";
 import Image from "next/image";
 
 const isGitHubPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true";
@@ -10,6 +11,29 @@ export default function GarisonShowcase() {
     { src: `${basePath}/projects/garison/ss1.png`, alt: "Garison Gameplay - Combat", caption: "Modular state machines handling AI combat patterns." },
     { src: `${basePath}/projects/garison/ss2.png`, alt: "Garison - Inventory", caption: "Custom UI system built from scratch in GML." },
     { src: `${basePath}/projects/garison/ss3.png`, alt: "Garison - Map", caption: "Procedural generation logic for environmental details." },
+  ];
+
+  const heroHotspots = [
+    {
+      x: 30,
+      y: 40,
+      label: "A* Pathfinding",
+      description: "Custom grid-based pathfinding optimized for GML. Uses a priority queue to handle 100+ agents simultaneously.",
+      code: "function scr_path_find(start, end) {\n  var open_list = ds_priority_create();\n  // ... heuristic logic\n}"
+    },
+    {
+      x: 70,
+      y: 60,
+      label: "State Machine",
+      description: "NPCs switch between IDLE, CHASE, and ATTACK states using a lightweight modular script system.",
+      code: "switch (state) {\n  case States.CHASE: \n    scr_move_to(target);\n    break;\n}"
+    },
+    {
+      x: 50,
+      y: 20,
+      label: "GLSL Shader",
+      description: "Real-time shadow casting and ambient lighting computed on the GPU for zero CPU overhead.",
+    }
   ];
 
   return (
@@ -39,12 +63,17 @@ export default function GarisonShowcase() {
           </div>
         </div>
 
-        {/* HERO IMAGE/GIF */}
-        <div className="relative w-full aspect-video border-8 border-black dark:border-white shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] dark:shadow-[16px_16px_0px_0px_rgba(244,244,240,1)] mb-24 overflow-hidden bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center">
-          <div className="text-center p-8">
-            <p className="text-2xl font-mono opacity-30 uppercase italic">Main Gameplay GIF Placeholder</p>
-            <p className="text-sm font-mono opacity-20 mt-2">[Upload main_gameplay.gif to /public/projects/garison/]</p>
-          </div>
+        {/* INTERACTIVE BLUEPRINT HERO */}
+        <div className="mb-24">
+          <BlueprintExplainer 
+            title="CORE_ENGINE_ARCHITECTURE"
+            imageSrc="" // Placeholder for now
+            alt="Garison Gameplay Schematic"
+            hotspots={heroHotspots}
+          />
+          <p className="mt-4 text-xs font-mono opacity-40 uppercase tracking-widest text-center">
+            [ INTERACTIVE: HOVER OVER NODES TO VIEW SYSTEM SCHEMATICS ]
+          </p>
         </div>
 
         {/* TECH SPECS GRID */}

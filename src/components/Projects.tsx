@@ -12,7 +12,7 @@ const projects = [
     image: `${basePath}/projects/project1.png`,
     tags: ["GML", "AI Logic", "Architecture", "GLSL Shaders"],
     github: "https://github.com/hexa325/garison",
-    details: "/projects/garison",
+    details: `${basePath}/projects/garison`,
   },
   {
     title: "Project Alpha",
@@ -20,7 +20,7 @@ const projects = [
     tags: ["Next.js", "D3.js", "TS"],
     image: null,
     github: "#",
-    details: "#",
+    details: `${basePath}/#`,
   },
   {
     title: "Project Beta",
@@ -28,7 +28,7 @@ const projects = [
     tags: ["React", "Tailwind", "Stripe"],
     image: null,
     github: "#",
-    details: "#",
+    details: `${basePath}/#`,
   }
 ];
 

@@ -11,7 +11,7 @@ const projects = [
     description: "A technically advanced 2D top-down game featuring A* pathfinding AI, modular state machines for NPC behavior, and a dynamic branching dialogue system, all built upon a high-performance and organized GML architecture.",
     image: `${basePath}/projects/project1.png`,
     tags: ["GML", "AI Logic", "Architecture", "GLSL Shaders"],
-    github: "https://github.com/hexa325/garison",
+    github: "https://github.com/hexa325/garison2023",
     details: `${basePath}/projects/garison`,
   },
   {

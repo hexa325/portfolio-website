@@ -54,21 +54,9 @@
   100% { transform: translateY(100%); }
 }
 
-@keyframes text-glitch {
-  0% { clip-path: inset(40% 0 61% 0); }
-  20% { clip-path: inset(92% 0 1% 0); }
-  40% { clip-path: inset(43% 0 1% 0); }
-  60% { clip-path: inset(25% 0 58% 0); }
-  80% { clip-path: inset(54% 0 7% 0); }
-  100% { clip-path: inset(58% 0 43% 0); }
-}
-
 @layer utilities {
   .animate-scanline {
     animation: scanline 8s linear infinite;
-  }
-  .glitch-hover:hover {
-    animation: text-glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
   }
   .mechanical-click:active {
     transform: scale(0.98) translateY(2px);

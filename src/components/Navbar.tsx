@@ -3,6 +3,9 @@
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
+const isGitHubPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === "true";
+const basePath = isGitHubPages ? "/portfolio-website" : "";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,38 +16,38 @@ export default function Navbar() {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-20">
-          <a href="#" className="text-3xl font-bold tracking-tighter uppercase" aria-label="Home">
+          <a href={`${basePath}/`} className="text-3xl font-bold tracking-tighter uppercase" aria-label="Home">
             hexa.
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <a
-              href="#about"
+              href={`${basePath}/#about`}
               className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               About
             </a>
             <a
-              href="#experience"
+              href={`${basePath}/#experience`}
               className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               Experience
             </a>
             <a
-              href="#skills"
+              href={`${basePath}/#skills`}
               className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               Skills
             </a>
             <a
-              href="#projects"
+              href={`${basePath}/#projects`}
               className="text-xs uppercase font-bold tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black px-2 transition-colors"
             >
               Projects
             </a>
             <a
-              href="#contact"
+              href={`${basePath}/#contact`}
               className="bg-black text-white dark:bg-white dark:text-black px-6 py-2 font-bold uppercase tracking-widest border-2 border-black dark:border-white hover:translate-x-1 hover:translate-y-1 transition-transform"
             >
               Contact
@@ -102,35 +105,35 @@ export default function Navbar() {
           <div className="md:hidden py-8 border-t-4 border-black dark:border-white animate-fade-in bg-white dark:bg-black">
             <div className="flex flex-col gap-6 px-4">
               <a
-                href="#about"
+                href={`${basePath}/#about`}
                 onClick={() => setIsOpen(false)}
                 className="text-2xl font-bold uppercase tracking-tight"
               >
                 About
               </a>
               <a
-                href="#experience"
+                href={`${basePath}/#experience`}
                 onClick={() => setIsOpen(false)}
                 className="text-2xl font-bold uppercase tracking-tight"
               >
                 Experience
               </a>
               <a
-                href="#skills"
+                href={`${basePath}/#skills`}
                 onClick={() => setIsOpen(false)}
                 className="text-2xl font-bold uppercase tracking-tight"
               >
                 Skills
               </a>
               <a
-                href="#projects"
+                href={`${basePath}/#projects`}
                 onClick={() => setIsOpen(false)}
                 className="text-2xl font-bold uppercase tracking-tight"
               >
                 Projects
               </a>
               <a
-                href="#contact"
+                href={`${basePath}/#contact`}
                 onClick={() => setIsOpen(false)}
                 className="bg-black text-white dark:bg-white dark:text-black px-6 py-4 font-bold uppercase tracking-widest border-4 border-black dark:border-white text-center"
               >

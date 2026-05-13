@@ -58,24 +58,14 @@ export default function Projects() {
                   {project.description}
                 </p>
                 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 order-3 w-full sm:w-auto">
+                {/* Action Button */}
+                <div className="flex order-3 w-full sm:w-auto">
                   <a 
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 border-2 border-black dark:border-white font-bold uppercase tracking-widest text-xs hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-center"
+                    href={project.details}
+                    className="sync-inv w-full sm:w-auto text-center text-sm"
                   >
-                    View Code
+                    Project Details
                   </a>
-                  {project.details !== "#" && (
-                    <a 
-                      href={project.details}
-                      className="px-6 py-2 bg-black text-white dark:bg-white dark:text-black font-bold uppercase tracking-widest text-xs border-2 border-black dark:border-white hover:bg-transparent hover:text-black dark:hover:text-white transition-colors text-center"
-                    >
-                      Project Details
-                    </a>
-                  )}
                 </div>
                 
                 {/* MOBILE ORDER 3: Photo (Placed after buttons in the flex flow) */}

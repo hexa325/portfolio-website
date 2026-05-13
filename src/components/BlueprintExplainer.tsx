@@ -34,7 +34,7 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row min-h-[500px]">
+      <div className="flex flex-col lg:flex-row lg:min-h-[500px]">
         
         {/* LEFT/TOP: SCHEMATIC INDEX */}
         <div className="w-full lg:w-72 bg-zinc-200 dark:bg-zinc-800 border-b-4 lg:border-b-0 lg:border-r-4 border-black dark:border-white p-4 lg:p-6 shrink-0 z-20">
@@ -59,7 +59,7 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
           </nav>
         </div>
 
-        {/* MOBILE DETAIL AREA (Moves up to be after index on mobile) */}
+        {/* MOBILE DETAIL AREA (Visible after index on mobile) */}
         {activeSpot && (
           <div className="lg:hidden bg-zinc-50 dark:bg-zinc-900 border-b-4 border-black dark:border-white p-6 animate-reveal-up z-10">
             <div className="marker-box mb-4">ACTIVE_SELECTION: {activeSpot.label.toUpperCase()}</div>
@@ -78,8 +78,8 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
           </div>
         )}
 
-        {/* CENTER: BLUEPRINT AREA (Minimized on mobile) */}
-        <div className="relative flex-grow min-h-[200px] lg:min-h-0 bg-white dark:bg-black overflow-hidden">
+        {/* CENTER: BLUEPRINT AREA (HIDDEN ON MOBILE) */}
+        <div className="hidden lg:block relative flex-grow bg-white dark:bg-black overflow-hidden">
           <div className="absolute inset-0">
             {/* THE BASE IMAGE (OR PLACEHOLDER) */}
             {imageSrc ? (

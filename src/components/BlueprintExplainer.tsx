@@ -37,7 +37,7 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
       <div className="flex flex-col lg:flex-row min-h-[500px]">
         
         {/* LEFT/TOP: SCHEMATIC INDEX */}
-        <div className="w-full lg:w-72 bg-zinc-200 dark:bg-zinc-800 border-b-4 lg:border-b-0 lg:border-r-4 border-black dark:border-white p-4 lg:p-6 shrink-0">
+        <div className="w-full lg:w-72 bg-zinc-200 dark:bg-zinc-800 border-b-4 lg:border-b-0 lg:border-r-4 border-black dark:border-white p-4 lg:p-6 shrink-0 z-20">
           <div className="marker-box mb-4 lg:mb-6">SYSTEM_INDEX_V.01</div>
           <h3 className="font-bold uppercase text-[9px] tracking-[0.2em] mb-4 lg:mb-8 opacity-50">Technical_Modules</h3>
           <nav className="grid grid-cols-2 lg:grid-cols-1 gap-2">
@@ -59,9 +59,28 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
           </nav>
         </div>
 
-        {/* CENTER: BLUEPRINT AREA */}
-        <div className="relative flex-grow min-h-[300px] lg:min-h-0 bg-white dark:bg-black">
-          <div className="absolute inset-0 overflow-hidden">
+        {/* MOBILE DETAIL AREA (Moves up to be after index on mobile) */}
+        {activeSpot && (
+          <div className="lg:hidden bg-zinc-50 dark:bg-zinc-900 border-b-4 border-black dark:border-white p-6 animate-reveal-up z-10">
+            <div className="marker-box mb-4">ACTIVE_SELECTION: {activeSpot.label.toUpperCase()}</div>
+            <h4 className="text-2xl font-bold uppercase mb-4 tracking-tighter">{activeSpot.label}</h4>
+            <p className="font-mono text-xs opacity-70 mb-6 leading-relaxed">
+              {activeSpot.description}
+            </p>
+            {activeSpot.code && (
+              <div className="bg-black dark:bg-white p-4 border-2 border-black dark:border-white">
+                <p className="text-[10px] font-mono text-blue-400 mb-2">// LOGIC_SNIPPET</p>
+                <pre className="text-[10px] font-mono leading-snug whitespace-pre-wrap text-white dark:text-black">
+                  {activeSpot.code}
+                </pre>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* CENTER: BLUEPRINT AREA (Minimized on mobile) */}
+        <div className="relative flex-grow min-h-[200px] lg:min-h-0 bg-white dark:bg-black overflow-hidden">
+          <div className="absolute inset-0">
             {/* THE BASE IMAGE (OR PLACEHOLDER) */}
             {imageSrc ? (
               <Image src={imageSrc} alt={alt} fill className="object-cover opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
@@ -79,34 +98,36 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
               <div className="w-full h-[2px] bg-blue-400 dark:bg-blue-600 animate-scanline shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
             </div>
 
-            {/* HOTSPOTS */}
-            {hotspots.map((spot, i) => (
-              <div
-                key={i}
-                className="absolute group/spot transition-all duration-300"
-                style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-              >
-                <div className={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black dark:bg-white text-white dark:text-black px-2 py-1 text-[8px] font-mono font-bold uppercase transition-all duration-300 ${
-                  activeSpot?.label === spot.label ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
-                }`}>
-                  {spot.label}
-                </div>
-
-                <button
-                  className={`w-6 h-6 -ml-3 -mt-3 flex items-center justify-center z-20 mechanical-click transition-transform ${
-                    activeSpot?.label === spot.label ? "scale-125" : "scale-100"
-                  }`}
-                  onClick={() => setActiveSpot(spot)}
-                  onMouseEnter={() => setActiveSpot(spot)}
-                  aria-label={`Show details for ${spot.label}`}
+            {/* HOTSPOTS (Hidden on mobile to prioritize the Index) */}
+            <div className="hidden lg:block">
+              {hotspots.map((spot, i) => (
+                <div
+                  key={i}
+                  className="absolute group/spot transition-all duration-300"
+                  style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
                 >
-                  <div className={`absolute inset-0 bg-blue-600/20 rounded-full ${activeSpot?.label === spot.label ? "animate-ping" : "opacity-0"}`} />
-                  <div className={`relative w-3 h-3 border-2 transition-colors ${
-                    activeSpot?.label === spot.label ? "bg-blue-600 border-white dark:border-black" : "bg-transparent border-black/40 dark:border-white/40"
-                  }`} />
-                </button>
-              </div>
-            ))}
+                  <div className={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap bg-black dark:bg-white text-white dark:text-black px-2 py-1 text-[8px] font-mono font-bold uppercase transition-all duration-300 ${
+                    activeSpot?.label === spot.label ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
+                  }`}>
+                    {spot.label}
+                  </div>
+
+                  <button
+                    className={`w-6 h-6 -ml-3 -mt-3 flex items-center justify-center z-20 mechanical-click transition-transform ${
+                      activeSpot?.label === spot.label ? "scale-125" : "scale-100"
+                    }`}
+                    onClick={() => setActiveSpot(spot)}
+                    onMouseEnter={() => setActiveSpot(spot)}
+                    aria-label={`Show details for ${spot.label}`}
+                  >
+                    <div className={`absolute inset-0 bg-blue-600/20 rounded-full ${activeSpot?.label === spot.label ? "animate-ping" : "opacity-0"}`} />
+                    <div className={`relative w-3 h-3 border-2 transition-colors ${
+                      activeSpot?.label === spot.label ? "bg-blue-600 border-white dark:border-black" : "bg-transparent border-black/40 dark:border-white/40"
+                    }`} />
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* DESKTOP DETAIL PANEL (SIDE OVERLAY) */}
@@ -129,25 +150,6 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
           )}
         </div>
       </div>
-
-      {/* MOBILE DETAIL AREA (Always visible below blueprint if active) */}
-      {activeSpot && (
-        <div className="lg:hidden bg-zinc-200 dark:bg-zinc-800 border-t-4 border-black dark:border-white p-6 animate-reveal-up">
-          <div className="marker-box mb-4">ACTIVE_SELECTION: {activeSpot.label.toUpperCase()}</div>
-          <h4 className="text-2xl font-bold uppercase mb-4 tracking-tighter">{activeSpot.label}</h4>
-          <p className="font-mono text-xs opacity-70 mb-6 leading-relaxed">
-            {activeSpot.description}
-          </p>
-          {activeSpot.code && (
-            <div className="bg-black dark:bg-white p-4 border-2 border-black dark:border-white">
-              <p className="text-[10px] font-mono text-blue-400 mb-2">// LOGIC_SNIPPET</p>
-              <pre className="text-[10px] font-mono leading-snug whitespace-pre-wrap text-white dark:text-black">
-                {activeSpot.code}
-              </pre>
-            </div>
-          )}
-        </div>
-      )}
 
       {/* COORDINATES FOOTER */}
       <div className="bg-zinc-300 dark:bg-zinc-700 px-4 py-2 flex justify-between items-center font-mono text-[8px] opacity-60 uppercase border-t-4 border-black dark:border-white">

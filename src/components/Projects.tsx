@@ -11,19 +11,24 @@ const projects = [
     description: "A technically advanced 2D top-down game featuring A* pathfinding AI, modular state machines for NPC behavior, and a dynamic branching dialogue system, all built upon a high-performance and organized GML architecture.",
     image: `${basePath}/projects/project1.png`,
     tags: ["GML", "AI Logic", "Architecture", "GLSL Shaders"],
-    link: "#",
+    github: "https://github.com/hexa325/garison",
+    details: "/projects/garison",
   },
   {
     title: "Project Alpha",
     description: "Advanced data visualization dashboard for complex systems management.",
     tags: ["Next.js", "D3.js", "TS"],
     image: null,
+    github: "#",
+    details: "#",
   },
   {
     title: "Project Beta",
     description: "E-commerce platform with focus on high-performance and accessibility.",
     tags: ["React", "Tailwind", "Stripe"],
     image: null,
+    github: "#",
+    details: "#",
   }
 ];
 
@@ -53,8 +58,28 @@ export default function Projects() {
                   {project.description}
                 </p>
                 
-                {/* MOBILE ORDER 3: Photo (Placed after description in the flex flow) */}
-                <div className="relative w-full aspect-video overflow-hidden border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(244,244,240,1)] order-3 md:hidden">
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 order-3 w-full sm:w-auto">
+                  <a 
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 border-2 border-black dark:border-white font-bold uppercase tracking-widest text-xs hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors text-center"
+                  >
+                    View Code
+                  </a>
+                  {project.details !== "#" && (
+                    <a 
+                      href={project.details}
+                      className="px-6 py-2 bg-black text-white dark:bg-white dark:text-black font-bold uppercase tracking-widest text-xs border-2 border-black dark:border-white hover:bg-transparent hover:text-black dark:hover:text-white transition-colors text-center"
+                    >
+                      Project Details
+                    </a>
+                  )}
+                </div>
+                
+                {/* MOBILE ORDER 3: Photo (Placed after buttons in the flex flow) */}
+                <div className="relative w-full aspect-video overflow-hidden border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(244,244,240,1)] order-4 md:hidden">
                   {project.image ? (
                     <Image
                       src={project.image}

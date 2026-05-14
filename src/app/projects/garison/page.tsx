@@ -117,10 +117,6 @@ export default function GarisonShowcase() {
               <h3 className="font-bold uppercase mb-4 text-xs tracking-widest text-blue-600">Schematic_Info</h3>
               <ul className="space-y-4 font-mono text-sm">
                 <li className="flex justify-between border-b border-black/10 dark:border-white/10 pb-2">
-                  <span className="opacity-50 text-xs">VERSION</span>
-                  <span className="font-bold">2023_EDITION</span>
-                </li>
-                <li className="flex justify-between border-b border-black/10 dark:border-white/10 pb-2">
                   <span className="opacity-50 text-xs">ENGINE</span>
                   <span className="font-bold">GMS 2.3+</span>
                 </li>

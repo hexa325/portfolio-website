@@ -9,10 +9,12 @@ export default function ScrollReset() {
       window.history.scrollRestoration = "manual";
     }
 
-    // 2. Force scroll to the very top on mount/refresh
+    // 2. Force scroll to the very top on mount/refresh ONLY if there is no hash
     // We use a small timeout to ensure the browser has finished its initial layout
     const timer = setTimeout(() => {
-      window.scrollTo(0, 0);
+      if (!window.location.hash) {
+        window.scrollTo(0, 0);
+      }
     }, 0);
 
     return () => clearTimeout(timer);

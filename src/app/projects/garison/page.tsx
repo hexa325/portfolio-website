@@ -8,9 +8,9 @@ const basePath = isGitHubPages ? "/portfolio-website" : "";
 
 export default function GarisonShowcase() {
   const screenshots = [
-    { src: `${basePath}/projects/garison/ss1.png`, alt: "Garison Gameplay - Combat", caption: "Modular state machines handling AI combat patterns." },
-    { src: `${basePath}/projects/garison/ss2.png`, alt: "Garison - Inventory", caption: "Custom UI system built from scratch in GML." },
-    { src: `${basePath}/projects/garison/ss3.png`, alt: "Garison - Map", caption: "Procedural generation logic for environmental details." },
+    { src: `${basePath}/projects/garison/inventory.png`, alt: "Garison - Inventory", caption: "Custom UI system built from scratch in GML featuring dynamic slot management." },
+    { src: `${basePath}/projects/garison/map.png`, alt: "Garison - Map", caption: "Procedural generation logic for environmental details and world exploration." },
+    { src: `${basePath}/projects/garison/minigame.png`, alt: "Garison - Minigame", caption: "Interactive state-driven minigame mechanics integrated into the core engine." },
   ];
 
   const heroHotspots = [
@@ -98,54 +98,21 @@ export default function GarisonShowcase() {
           </p>
         </div>
 
-        {/* TECH SPECS GRID */}
-        <div className="grid lg:grid-cols-3 gap-12 mb-32">
-          <div className="lg:col-span-2 space-y-12">
+        {/* VISION + SCHEMATIC INFO */}
+        <div className="grid lg:grid-cols-3 gap-12 mb-24">
+          <div className="lg:col-span-2">
             <section>
               <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4">
                 <span className="w-8 h-8 bg-blue-600 flex items-center justify-center text-white text-sm">01</span>
                 The Vision
               </h2>
               <p className="text-xl font-mono text-black/70 dark:text-white/70 leading-relaxed">
-                Garison was born from a desire to push the limits of GameMaker Studio 2. The goal was to create a top-down action RPG that didn't just look good, but felt mechanically deep. I focused on building reusable systems: a JSON-buffered save/load system, a flexible tag-based dialogue engine, and a shader-driven weather and lighting cycle.
+                Garison was born from a desire to push the limits of GameMaker Studio 2. The goal was to create a technically advanced top-down RPG that prioritized deep systems over simple scripting. I engineered a modular entity state machine to handle complex AI, a high-speed JSON buffer serialization engine for persistence, and a GPU-accelerated atmospheric shader stack.
               </p>
-            </section>
-
-            <section>
-              <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4">
-                <span className="w-8 h-8 bg-blue-600 flex items-center justify-center text-white text-sm">02</span>
-                Technical Breakdown
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-8">
-                <div className="sync-card p-6 space-y-4">
-                  <h3 className="font-bold uppercase tracking-tight">Tag-Based Dialogue</h3>
-                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
-                    Real-time text parser supporting per-character styling and animations. Branching logic integrated with global quest flags.
-                  </p>
-                </div>
-                <div className="sync-card p-6 space-y-4">
-                  <h3 className="font-bold uppercase tracking-tight">Persistence Layer</h3>
-                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
-                    JSON-based serialization using fixed-size buffers for high-performance saving of world state, player stats, and inventory.
-                  </p>
-                </div>
-                <div className="sync-card p-6 space-y-4">
-                  <h3 className="font-bold uppercase tracking-tight">Modular AI FSM</h3>
-                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
-                    Clean separation of behavior logic (Wander, Chase, Attack) allowing for rapid iteration on enemy types without side effects.
-                  </p>
-                </div>
-                <div className="sync-card p-6 space-y-4">
-                  <h3 className="font-bold uppercase tracking-tight">Custom UI Stack</h3>
-                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
-                    Lightweight UI framework built from scratch to handle inventory grids, branching options, and interactive hud elements.
-                  </p>
-                </div>
-              </div>
             </section>
           </div>
 
-          <aside className="space-y-8">
+          <aside>
             <div className="p-8 border-4 border-black dark:border-white bg-white dark:bg-black">
               <h3 className="font-bold uppercase mb-4 text-xs tracking-widest text-blue-600">Schematic_Info</h3>
               <ul className="space-y-4 font-mono text-sm">
@@ -167,9 +134,49 @@ export default function GarisonShowcase() {
                 </li>
               </ul>
             </div>
-            
+          </aside>
+        </div>
+
+        {/* TECHNICAL BREAKDOWN + TAGS */}
+        <div className="grid lg:grid-cols-3 gap-12 mb-32">
+          <div className="lg:col-span-2">
+            <section>
+              <h2 className="text-3xl font-bold uppercase mb-6 flex items-center gap-4">
+                <span className="w-8 h-8 bg-blue-600 flex items-center justify-center text-white text-sm">02</span>
+                Technical Breakdown
+              </h2>
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div className="sync-card p-6 space-y-4">
+                  <h3 className="font-bold uppercase tracking-tight text-blue-600">Lexical Dialogue Parser</h3>
+                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
+                    A custom-built string parser that handles real-time tag extraction for dynamic text effects (shake, wave, color). Features an integrated state-machine for branching narratives and global quest flag synchronization.
+                  </p>
+                </div>
+                <div className="sync-card p-6 space-y-4">
+                  <h3 className="font-bold uppercase tracking-tight text-blue-600">Buffer-Based Persistence</h3>
+                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
+                    High-performance state serialization using raw memory buffers. Converts deep DS Map structures and inventory constructors into optimized binary/JSON streams for instantaneous disk I/O and data integrity.
+                  </p>
+                </div>
+                <div className="sync-card p-6 space-y-4">
+                  <h3 className="font-bold uppercase tracking-tight text-blue-600">Decoupled AI Architecture</h3>
+                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
+                    A modular Finite State Machine (FSM) utilizing script-driven behaviors. Decouples entity decision-making from physics/collision logic, allowing for complex multi-stage boss patterns and scalable NPC logic.
+                  </p>
+                </div>
+                <div className="sync-card p-6 space-y-4">
+                  <h3 className="font-bold uppercase tracking-tight text-blue-600">GPU Atmospheric Stack</h3>
+                  <p className="text-sm font-mono text-black/60 dark:text-white/60">
+                    Custom GLSL fragment shaders managing dynamic day/night cycles and lightning. Leverages surface blending and vertex color manipulation to achieve complex environmental lighting without CPU overhead.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div className="flex flex-col justify-center">
             <div className="p-8 border-4 border-dashed border-black/20 dark:border-white/20">
-              <h3 className="font-bold uppercase mb-4 text-xs tracking-widest opacity-50">Tags</h3>
+              <h3 className="font-bold uppercase mb-4 text-xs tracking-widest opacity-50">Technical Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {["GML", "Serialization", "Dialogue Engine", "GLSL", "AI State Machines", "UI Framework"].map(tag => (
                   <span key={tag} className="px-2 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-bold uppercase">
@@ -178,7 +185,7 @@ export default function GarisonShowcase() {
                 ))}
               </div>
             </div>
-          </aside>
+          </div>
         </div>
 
         {/* GALLERY SECTION */}
@@ -192,8 +199,13 @@ export default function GarisonShowcase() {
             {screenshots.map((ss, i) => (
               <div key={i} className="space-y-4 group">
                 <div className="relative aspect-square border-4 border-black dark:border-white overflow-hidden bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center group-hover:border-blue-600 transition-colors">
+                   <Image
+                     src={ss.src}
+                     alt={ss.alt}
+                     fill
+                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                   />
                    <div className="absolute inset-0 blueprint-grid opacity-0 group-hover:opacity-20 transition-opacity" />
-                   <p className="text-sm font-mono opacity-20 uppercase">Screenshot {i+1} Placeholder</p>
                 </div>
                 <div>
                    <h4 className="font-bold uppercase text-lg group-hover:text-blue-600 transition-colors">{ss.alt}</h4>

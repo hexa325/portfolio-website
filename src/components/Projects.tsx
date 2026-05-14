@@ -8,7 +8,7 @@ const basePath = isGitHubPages ? "/portfolio-website" : "";
 const projects = [
   {
     title: "Garison",
-    description: "A robust 2D top-down RPG architecture featuring a tag-based dialogue engine, JSON-buffered persistence, and a modular entity state machine. Built with high-performance GML and custom GLSL shaders.",
+    description: "A technically advanced top-down RPG powered by a custom systems-architecture. Garison leverages GPU-accelerated GLSL shaders for atmospheric rendering, a high-speed JSON buffer serialization engine for deep world persistence, and a dynamic tag-based text parser. Engineered with a modular entity state machine to handle complex AI behaviors and scalable mechanics.",
     image: `${basePath}/projects/project1.png`,
     tags: ["GML", "Dialogue Engine", "Architecture", "GLSL Shaders", "Serialization"],
     github: "https://github.com/hexa325/garison2023",

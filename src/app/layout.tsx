@@ -64,6 +64,7 @@ export default function RootLayout({
     >
       <body className="bg-[#f4f4f0] text-[#111] dark:bg-[#111111] dark:text-[#f4f4f0] font-mono selection:bg-blue-600 selection:text-white">
         <ThemeProvider>
+          <div className="noise-overlay" />
           <ModernMesh />
           {children}
         </ThemeProvider>

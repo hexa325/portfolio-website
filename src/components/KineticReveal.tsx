@@ -21,9 +21,11 @@ export default function KineticReveal({
 
     const reveal = () => setIsActive(true);
 
-    // 1. Immediate check for back-navigation / already in view
+    // 1. Immediate check for back-navigation / already in view / already scrolled past
     const rect = currentRef.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    // If the top of the element is above the bottom of the viewport, 
+    // it means it's either in view or already scrolled past.
+    if (rect.top < window.innerHeight) {
       reveal();
     }
 

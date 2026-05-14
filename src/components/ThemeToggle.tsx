@@ -12,7 +12,11 @@ export default function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-9 h-9" />;
+    return (
+      <div className="w-9 h-9 flex items-center justify-center rounded-lg bg-black/10 dark:bg-white/10 opacity-50">
+        <div className="w-5 h-5 rounded-full border-2 border-current border-t-transparent animate-spin-slow" />
+      </div>
+    );
   }
 
   return (

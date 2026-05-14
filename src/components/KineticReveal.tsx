@@ -19,44 +19,48 @@ export default function KineticReveal({
 
     const currentRef = ref.current;
 
-    // 1. FAIL-SAFE: If it hasn't revealed in 500ms, force it.
-    // This solves the "invisible on back-button" bug.
-    const failSafe = setTimeout(() => {
+    const reveal = () => {
       if (currentRef && !currentRef.classList.contains("active")) {
         currentRef.classList.add("active");
       }
-    }, 500);
+    };
 
-    // 2. Mobile: Add active immediately and exit
+    // 1. Immediate check for back-navigation / already in view
+    const rect = currentRef.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      reveal();
+    }
+
+    // 2. Listener for browser back/forward buttons
+    window.addEventListener("popstate", reveal);
+
+    // 3. FAIL-SAFE: Ensure it eventually shows up
+    const failSafe = setTimeout(reveal, 600);
+
+    // 4. Mobile: Add active immediately
     if (window.innerWidth <= 768) {
-      currentRef.classList.add("active");
+      reveal();
       clearTimeout(failSafe);
       return;
     }
 
-    // 3. Observer logic
+    // 5. Standard Observer for fresh scrolls
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          requestAnimationFrame(() => {
-            if (currentRef) {
-              currentRef.classList.add("active");
-              clearTimeout(failSafe);
-            }
-          });
+          reveal();
+          clearTimeout(failSafe);
           observer.unobserve(entry.target);
         }
       },
-      { 
-        threshold: 0.01,
-        rootMargin: "0px 0px -5% 0px"
-      }
+      { threshold: 0.01, rootMargin: "0px 0px -5% 0px" }
     );
 
     observer.observe(currentRef);
 
     return () => {
       observer.disconnect();
+      window.removeEventListener("popstate", reveal);
       clearTimeout(failSafe);
     };
   }, []);

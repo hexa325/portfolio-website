@@ -79,7 +79,7 @@ export default function BlueprintExplainer({ imageSrc, alt, hotspots, title }: B
         )}
 
         {/* CENTER: BLUEPRINT AREA (HIDDEN ON MOBILE) */}
-        <div className="hidden lg:block relative flex-grow bg-white dark:bg-black overflow-hidden">
+        <div className="hidden lg:block relative flex-grow bg-zinc-100 dark:bg-zinc-900 overflow-hidden">
           <div className="absolute inset-0">
             {/* THE BASE IMAGE (OR PLACEHOLDER) */}
             {imageSrc ? (

@@ -130,7 +130,7 @@
   }
 
   .dark .noise-overlay {
-    opacity: 0.06;
+    opacity: 0.04;
     mix-blend-mode: screen; /* Lightens the dark background */
   }
 

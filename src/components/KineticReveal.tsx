@@ -21,28 +21,35 @@ export default function KineticReveal({
 
     const reveal = () => setIsActive(true);
 
-    // 1. Immediate check for back-navigation / already in view / already scrolled past
+    // 1. Check if we navigated via BACK button
+    const isBackNav = 
+      window.performance?.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;
+    
+    if (isBackNav?.type === "back_forward") {
+      reveal();
+      return;
+    }
+
+    // 2. Immediate check: If element is already in view or above viewport
     const rect = currentRef.getBoundingClientRect();
-    // If the top of the element is above the bottom of the viewport, 
-    // it means it's either in view or already scrolled past.
     if (rect.top < window.innerHeight) {
       reveal();
     }
 
-    // 2. Listener for browser back/forward buttons
+    // 3. Listener for browser back/forward buttons
     window.addEventListener("popstate", reveal);
 
-    // 3. FAIL-SAFE: Ensure it eventually shows up
-    const failSafe = setTimeout(reveal, 600);
+    // 4. FAIL-SAFE: Absolute visibility guarantee
+    const failSafe = setTimeout(reveal, 800);
 
-    // 4. Mobile: Add active immediately
+    // 5. Mobile: Add active immediately
     if (window.innerWidth <= 768) {
       reveal();
       clearTimeout(failSafe);
       return;
     }
 
-    // 5. Standard Observer for fresh scrolls
+    // 6. Standard Observer for fresh scrolls
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

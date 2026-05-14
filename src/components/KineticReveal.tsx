@@ -17,42 +17,48 @@ export default function KineticReveal({
   useEffect(() => {
     if (typeof window === "undefined" || !ref.current) return;
 
-    // Mobile: Add active immediately and exit
+    const currentRef = ref.current;
+
+    // 1. FAIL-SAFE: If it hasn't revealed in 500ms, force it.
+    // This solves the "invisible on back-button" bug.
+    const failSafe = setTimeout(() => {
+      if (currentRef && !currentRef.classList.contains("active")) {
+        currentRef.classList.add("active");
+      }
+    }, 500);
+
+    // 2. Mobile: Add active immediately and exit
     if (window.innerWidth <= 768) {
-      ref.current.classList.add("active");
+      currentRef.classList.add("active");
+      clearTimeout(failSafe);
       return;
     }
 
-    const currentRef = ref.current;
-
+    // 3. Observer logic
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           requestAnimationFrame(() => {
             if (currentRef) {
               currentRef.classList.add("active");
+              clearTimeout(failSafe);
             }
           });
           observer.unobserve(entry.target);
         }
       },
       { 
-        threshold: 0.01, // Lower threshold for better reliability
-        rootMargin: "0px 0px 50px 0px" // Trigger slightly before it enters viewport
+        threshold: 0.01,
+        rootMargin: "0px 0px -5% 0px"
       }
     );
 
-    // Initial check in case it's already in view (common on back navigation)
-    const rect = currentRef.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight && rect.bottom > 0;
-    
-    if (inView) {
-      currentRef.classList.add("active");
-    } else {
-      observer.observe(currentRef);
-    }
+    observer.observe(currentRef);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(failSafe);
+    };
   }, []);
 
   // On mobile, we render a simple div without the reveal logic/classes

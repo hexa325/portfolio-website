@@ -9,7 +9,7 @@ const basePath = isGitHubPages ? "/portfolio-website" : "";
 export default function GarisonShowcase() {
   const screenshots = [
     { src: `${basePath}/projects/garison/inventory.png`, alt: "Garison - Inventory", caption: "Custom UI system built from scratch in GML featuring dynamic slot management." },
-    { src: `${basePath}/projects/garison/map.png`, alt: "Garison - Map", caption: "Procedural generation logic for environmental details and world exploration." },
+    { src: `${basePath}/projects/garison/map.png`, alt: "Garison - Map", caption: "Dynamic environmental state logic and world exploration mechanics." },
     { src: `${basePath}/projects/garison/minigame.png`, alt: "Garison - Minigame", caption: "Interactive state-driven minigame mechanics integrated into the core engine." },
   ];
 

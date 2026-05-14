@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ModernMesh from "@/components/ModernMesh";
+import CleanStart from "@/components/CleanStart";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({

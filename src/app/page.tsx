@@ -24,9 +24,7 @@ export default function Home() {
       <Hero />
       
       <section className="section-container">
-        <KineticReveal>
-          <LiveTelemetry />
-        </KineticReveal>
+        <LiveTelemetry />
       </section>
 
       <div id="about">

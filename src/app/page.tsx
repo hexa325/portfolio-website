@@ -8,6 +8,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import KineticReveal from "@/components/KineticReveal";
+import LiveTelemetry from "@/components/LiveTelemetry";
 
 export default function Home() {
   return (
@@ -22,6 +23,12 @@ export default function Home() {
       <Navbar />
       <Hero />
       
+      <section className="section-container">
+        <KineticReveal>
+          <LiveTelemetry />
+        </KineticReveal>
+      </section>
+
       <div id="about">
         <KineticReveal>
           <About />

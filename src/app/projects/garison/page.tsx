@@ -93,9 +93,6 @@ export default function GarisonShowcase() {
             alt="Garison Gameplay Schematic"
             hotspots={heroHotspots}
           />
-          <p className="mt-4 text-xs font-mono opacity-40 uppercase tracking-widest text-center animate-pulse">
-            [ INTERACTIVE: HOVER OVER NODES TO VIEW SYSTEM SCHEMATICS ]
-          </p>
         </div>
 
         {/* VISION + SCHEMATIC INFO */}

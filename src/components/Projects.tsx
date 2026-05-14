@@ -108,7 +108,6 @@ export default function Projects() {
                     {project.title}
                   </div>
                 )}
-                <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </KineticReveal>

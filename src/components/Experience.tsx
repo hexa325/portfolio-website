@@ -22,7 +22,7 @@ export default function Experience() {
             </span>
             <div className="flex flex-col mb-6">
               <h3 className="text-3xl md:text-4xl font-bold tracking-tighter uppercase mb-1">
-                Instructor
+                Programming Mentor
               </h3>
               <span className="text-blue-600 font-bold text-lg tracking-widest uppercase">Logiscool</span>
             </div>

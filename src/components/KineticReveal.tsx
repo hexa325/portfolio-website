@@ -15,7 +15,6 @@ export default function KineticReveal({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     if (typeof window === "undefined" || !ref.current) return;
 
     // Mobile: Add active immediately and exit
@@ -24,24 +23,35 @@ export default function KineticReveal({
       return;
     }
 
+    const currentRef = ref.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           requestAnimationFrame(() => {
-            if (ref.current) {
-              ref.current.classList.add("active");
+            if (currentRef) {
+              currentRef.classList.add("active");
             }
           });
           observer.unobserve(entry.target);
         }
       },
       { 
-        threshold: 0.1,
-        rootMargin: "0px 0px -10% 0px"
+        threshold: 0.01, // Lower threshold for better reliability
+        rootMargin: "0px 0px 50px 0px" // Trigger slightly before it enters viewport
       }
     );
 
-    observer.observe(ref.current);
+    // Initial check in case it's already in view (common on back navigation)
+    const rect = currentRef.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (inView) {
+      currentRef.classList.add("active");
+    } else {
+      observer.observe(currentRef);
+    }
+
     return () => observer.disconnect();
   }, []);
 

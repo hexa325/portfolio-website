@@ -1,4 +1,5 @@
 import React from "react";
+import TimeAgo from "./TimeAgo";
 
 // Types for GitHub Events API
 interface GitHubEvent {
@@ -33,23 +34,11 @@ function formatEventAction(event: GitHubEvent): string {
   }
 }
 
-function timeAgo(dateString: string) {
-  const date = new Date(dateString);
-  const now = new Date();
-  const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-
-  if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
-  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
-  return `${Math.floor(seconds / 86400)}d ago`;
-}
-
 export default async function LiveTelemetry() {
   let events: GitHubEvent[] = [];
   let error = false;
 
   try {
-    // Fetch directly during build time. We add cache: 'no-store' to ensure 
-    // the build process always grabs the absolute latest data when the cron job runs.
     const res = await fetch("https://api.github.com/users/hexa325/events/public", {
       headers: {
         Accept: "application/vnd.github.v3+json",
@@ -59,7 +48,6 @@ export default async function LiveTelemetry() {
     if (!res.ok) throw new Error(`GitHub API responded with ${res.status}`);
     const data = await res.json();
     
-    // Filter out uninteresting events and grab the top 5
     events = data
       .filter((e: GitHubEvent) => 
         ["PushEvent", "CreateEvent", "PullRequestEvent", "IssuesEvent"].includes(e.type)
@@ -73,7 +61,6 @@ export default async function LiveTelemetry() {
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-12 border-4 border-black dark:border-white bg-zinc-100 dark:bg-zinc-900 p-6 relative overflow-hidden group">
-      {/* Brutalist Decoration */}
       <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest">
         Live_Telemetry // Automated
       </div>
@@ -97,13 +84,12 @@ export default async function LiveTelemetry() {
           {events.map((event) => (
             <li key={event.id} className="font-mono text-sm border-l-2 border-black/20 dark:border-white/20 pl-4 py-1 hover:border-blue-600 dark:hover:border-blue-500 transition-colors">
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                <span className="opacity-40 text-xs w-16 uppercase tracking-tighter">{timeAgo(event.created_at)}</span>
+                <TimeAgo dateString={event.created_at} />
                 <span className="font-bold text-blue-600 dark:text-blue-400 uppercase tracking-tight">
                   {formatEventAction(event)}
                 </span>
                 <span className="truncate opacity-80 uppercase tracking-tight">{event.repo.name.replace("hexa325/", "")}</span>
               </div>
-              {/* If it's a push event, show the last commit message */}
               {event.type === "PushEvent" && event.payload.commits && event.payload.commits[0] && (
                 <p className="text-xs opacity-50 mt-1 truncate max-w-lg font-mono">
                   "{event.payload.commits[0].message.split('\n')[0]}"

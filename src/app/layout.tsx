@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ModernMesh from "@/components/ModernMesh";
-import ScrollReset from "@/components/ScrollReset";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -65,7 +64,6 @@ export default function RootLayout({
     >
       <body className="bg-[#f4f4f0] text-[#111] dark:bg-[#111111] dark:text-[#f4f4f0] font-mono selection:bg-blue-600 selection:text-white">
         <ThemeProvider>
-          <ScrollReset />
           <ModernMesh />
           {children}
         </ThemeProvider>

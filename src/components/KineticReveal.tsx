@@ -12,18 +12,14 @@ export default function KineticReveal({
   stagger?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined" || !ref.current) return;
 
     const currentRef = ref.current;
 
-    const reveal = () => {
-      if (currentRef && !currentRef.classList.contains("active")) {
-        currentRef.classList.add("active");
-      }
-    };
+    const reveal = () => setIsActive(true);
 
     // 1. Immediate check for back-navigation / already in view
     const rect = currentRef.getBoundingClientRect();
@@ -65,11 +61,10 @@ export default function KineticReveal({
     };
   }, []);
 
-  // On mobile, we render a simple div without the reveal logic/classes
   return (
     <div 
       ref={ref} 
-      className={`reveal-kinetic ${stagger ? `stagger-${stagger}` : ""} ${className}`}
+      className={`reveal-kinetic ${isActive ? "active" : ""} ${stagger ? `stagger-${stagger}` : ""} ${className}`}
     >
       {children}
     </div>

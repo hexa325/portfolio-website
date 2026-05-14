@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import TimeAgo from "./TimeAgo";
 
 // Types for GitHub Events API
@@ -34,35 +36,46 @@ function formatEventAction(event: GitHubEvent): string {
   }
 }
 
-export default async function LiveTelemetry() {
-  let events: GitHubEvent[] = [];
-  let error = false;
+export default function LiveTelemetry() {
+  const [events, setEvents] = useState<GitHubEvent[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  try {
-    const res = await fetch("https://api.github.com/users/hexa325/events/public", {
-      headers: {
-        Accept: "application/vnd.github.v3+json",
-      },
-    });
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const res = await fetch("https://api.github.com/users/hexa325/events/public", {
+          headers: {
+            Accept: "application/vnd.github.v3+json",
+          }
+        });
 
-    if (!res.ok) throw new Error(`GitHub API responded with ${res.status}`);
-    const data = await res.json();
-    
-    events = data
-      .filter((e: GitHubEvent) => 
-        ["PushEvent", "CreateEvent", "PullRequestEvent", "IssuesEvent"].includes(e.type)
-      )
-      .slice(0, 5);
-      
-  } catch (e) {
-    console.error("Telemetry Fetch Error:", e);
-    error = true;
-  }
+        if (!res.ok) throw new Error(`GitHub API responded with ${res.status}`);
+        const data = await res.json();
+        
+        const filtered = data
+          .filter((e: GitHubEvent) => 
+            ["PushEvent", "CreateEvent", "PullRequestEvent", "IssuesEvent"].includes(e.type)
+          )
+          .slice(0, 5);
+        
+        setEvents(filtered);
+      } catch (e) {
+        console.error("Telemetry Fetch Error:", e);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchEvents();
+  }, []);
 
   return (
     <div className="w-full max-w-4xl mx-auto mt-12 border-4 border-black dark:border-white bg-zinc-100 dark:bg-zinc-900 p-6 relative overflow-hidden group">
+      {/* Brutalist Decoration */}
       <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest">
-        Live_Telemetry // Automated
+        Live_Telemetry // Instant
       </div>
       <div className="absolute bottom-4 right-4 text-black/10 dark:text-white/10 opacity-50 pointer-events-none">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
@@ -71,16 +84,18 @@ export default async function LiveTelemetry() {
       </div>
 
       <h3 className="font-mono text-sm uppercase mb-4 opacity-50 flex items-center gap-2">
-        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+        <span className={`w-2 h-2 rounded-full ${loading ? 'bg-zinc-400 animate-pulse' : 'bg-green-500 animate-pulse'}`} />
         GitHub Activity Stream
       </h3>
 
       {error ? (
         <p className="font-mono text-xs text-red-500 uppercase tracking-tighter">SYSTEM_OFFLINE: Connection to GitHub Telemetry could not be established.</p>
+      ) : loading ? (
+        <p className="font-mono text-xs opacity-50 uppercase tracking-tighter">Syncing data from GitHub core...</p>
       ) : events.length === 0 ? (
         <p className="font-mono text-xs opacity-50 uppercase tracking-tighter">Awaiting new data transmissions...</p>
       ) : (
-        <ul className="space-y-3 relative z-10">
+        <ul className="space-y-3 relative z-10 animate-fade-in">
           {events.map((event) => (
             <li key={event.id} className="font-mono text-sm border-l-2 border-black/20 dark:border-white/20 pl-4 py-1 hover:border-blue-600 dark:hover:border-blue-500 transition-colors">
               <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
@@ -90,6 +105,7 @@ export default async function LiveTelemetry() {
                 </span>
                 <span className="truncate opacity-80 uppercase tracking-tight">{event.repo.name.replace("hexa325/", "")}</span>
               </div>
+              {/* If it's a push event, show the last commit message */}
               {event.type === "PushEvent" && event.payload.commits && event.payload.commits[0] && (
                 <p className="text-xs opacity-50 mt-1 truncate max-w-lg font-mono">
                   "{event.payload.commits[0].message.split('\n')[0]}"

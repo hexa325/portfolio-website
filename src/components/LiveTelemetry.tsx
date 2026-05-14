@@ -95,25 +95,38 @@ export default function LiveTelemetry() {
       ) : events.length === 0 ? (
         <p className="font-mono text-xs opacity-50 uppercase tracking-tighter">Awaiting new data transmissions...</p>
       ) : (
-        <ul className="space-y-3 relative z-10 animate-fade-in">
-          {events.map((event) => (
-            <li key={event.id} className="font-mono text-sm border-l-2 border-black/20 dark:border-white/20 pl-4 py-1 hover:border-blue-600 dark:hover:border-blue-500 transition-colors">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                <TimeAgo dateString={event.created_at} />
-                <span className="font-bold text-blue-600 dark:text-blue-400 uppercase tracking-tight">
-                  {formatEventAction(event)}
-                </span>
-                <span className="truncate opacity-80 uppercase tracking-tight">{event.repo.name.replace("hexa325/", "")}</span>
-              </div>
-              {/* If it's a push event, show the last commit message */}
-              {event.type === "PushEvent" && event.payload.commits && event.payload.commits[0] && (
-                <p className="text-xs opacity-50 mt-1 truncate max-w-lg font-mono">
-                  "{event.payload.commits[0].message.split('\n')[0]}"
-                </p>
-              )}
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className="space-y-3 relative z-10 animate-fade-in mb-8">
+            {events.map((event) => (
+              <li key={event.id} className="font-mono text-sm border-l-2 border-black/20 dark:border-white/20 pl-4 py-1 hover:border-blue-600 dark:hover:border-blue-500 transition-colors">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <TimeAgo dateString={event.created_at} />
+                  <span className="font-bold text-blue-600 dark:text-blue-400 uppercase tracking-tight">
+                    {formatEventAction(event)}
+                  </span>
+                  <span className="truncate opacity-80 uppercase tracking-tight">{event.repo.name.replace("hexa325/", "")}</span>
+                </div>
+                {/* If it's a push event, show the last commit message */}
+                {event.type === "PushEvent" && event.payload.commits && event.payload.commits[0] && (
+                  <p className="text-xs opacity-50 mt-1 truncate max-w-lg font-mono">
+                    "{event.payload.commits[0].message.split('\n')[0]}"
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+          
+          <div className="flex justify-start relative z-10">
+            <a 
+              href="https://github.com/hexa325" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="sync-inv text-[10px] py-2 px-4 mechanical-click"
+            >
+              View Full Profile
+            </a>
+          </div>
+        </>
       )}
     </div>
   );

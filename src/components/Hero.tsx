@@ -94,7 +94,8 @@ export default function Hero() {
                 </a>
                 
                 <a
-                  href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/cv.pdf" : "/cv.pdf"}
+                  href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/CV_Nitescu_George_Eduard.pdf" : "/CV_Nitescu_George_Eduard.pdf"}
+                  download="CV_Nitescu_George_Eduard.pdf"
                   className="px-12 py-4 border-4 border-black dark:border-white font-bold uppercase tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors w-full sm:w-auto text-center"
                 >
                   Download CV

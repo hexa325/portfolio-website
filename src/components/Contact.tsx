@@ -46,7 +46,8 @@ export default function Contact() {
           <div>
             <a
               id="download-cv"
-              href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/cv.pdf" : "/cv.pdf"}
+              href={process.env.NEXT_PUBLIC_GITHUB_PAGES === "true" ? "/portfolio-website/CV_Nitescu_George_Eduard.pdf" : "/CV_Nitescu_George_Eduard.pdf"}
+              download="CV_Nitescu_George_Eduard.pdf"
               className="sync-inv inline-block"
             >
               Download CV

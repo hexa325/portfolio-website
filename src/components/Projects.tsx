@@ -86,8 +86,8 @@ export default function Projects() {
 
                 {/* MOBILE ORDER 4: Tags */}
                 <div className="flex flex-wrap justify-center md:justify-start gap-3 order-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-bold uppercase tracking-widest text-white px-4 py-1 bg-black dark:bg-white dark:text-black border-2 border-black dark:border-white">
+                  {project.tags.map((tag, tagIndex) => (
+                    <span key={`${tag}-${tagIndex}`} className="text-xs font-bold uppercase tracking-widest text-white px-4 py-1 bg-black dark:bg-white dark:text-black border-2 border-black dark:border-white">
                       {tag}
                     </span>
                   ))}
